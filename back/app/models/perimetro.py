@@ -4,7 +4,7 @@ from app.db_sqlalchemy import db_sqlalchemy as db
 class Perimetro(db.Model):
     __tablename__ = 'perimetro'
     id = db.Column(db.Integer, primary_key=True)
-    nroPunto db.Column(db.Integer)
+    nroPunto = db.Column(db.Integer)
     ordenPunto= db.Column(db.Integer)
     latitud = db.Column(db.Integer)
     longitud = db.Column(db.Integer)

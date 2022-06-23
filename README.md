@@ -10,13 +10,15 @@ correr la base de datos con
 		docker pull mysql:8
 
 	ejecutamos el container:
-		docker run --name some-mysql --network=my-net -e MYSQL_ROOT_PASSWORD=passDeu  MYSQL_DATABASE=deu MYSQL_USER=usuarioDeu MYSQL_PASS=passDeu -v /home/nahue/Documents/DEU/ProyectoFinal/base/data:/var/lib/mysql/data/ mysql:8
+		docker run --name servidor_mysql --network=my-net -e MYSQL_ROOT_PASSWORD=passDeu  -e MYSQL_DATABASE=deu -e MYSQL_USER=usuarioDeu -e MYSQL_PASSWORD=passDeu -v /data:/var/lib/mysql -p 3306:3306 mysql:8
 
 correr el backend:
 	
 	Descargamos la img:
-		docker pull mysql:8
+		docker build --tag python-docker .
 
+	ejecutamos el container:
+		docker run --name backend --network my-net  -v back:/app -e DB_HOST=servidor_mysql -e DB_USER=usuarioDeu -e DB_PASS=passDeu -e DB_NAME=deu -p 5000:5000 python-docker
 
 correr el front:
 	para empezar de 0:
