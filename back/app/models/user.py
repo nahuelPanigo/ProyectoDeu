@@ -1,6 +1,6 @@
 import datetime
 from app.db_sqlalchemy import db_sqlalchemy as db
-from app.models.config import configurations as Config
+from app.models.config import Config
 from sqlalchemy import or_, and_
 from datetime import date
 import re
@@ -59,10 +59,14 @@ class User(db.Model):
         return errores
 
     #pone al usuario en un diccionario para despues pasarlo a json
-    def tostring(users):
+    def tostringUsers(users):
         newUsers=[]
         for user in users:
-            my_dict = {
+            newUsers.append(toString(user))
+        return  newUsers
+
+    def toString(user):
+        my_dict = {
                 "id":user.id,
                 "email":user.email,
                 "username":user.username,
@@ -70,8 +74,7 @@ class User(db.Model):
                 "update_at":user.update_at,
                 "created_at":user.created_at
             }
-        newUsers.append(my_dict)
-
+        return my_dict
 
     #valida el formulario del create
     def validateForm(form):
@@ -86,7 +89,7 @@ class User(db.Model):
             errores["error_password"] = Validator.password(form.get("password"))
 
         return errores    
-min = 3
+min = 5
 max = 30
 class Validator():    
     def email(email):
@@ -96,7 +99,7 @@ class Validator():
     
     def username(username):
         if not min <= len(username) <= max:
-            return "El nombre de usuario debe tener entre 3 y 30 caracteres"
+            return "El nombre de usuario debe tener entre 5 y 30 caracteres"
         return None
     
     def password(password):

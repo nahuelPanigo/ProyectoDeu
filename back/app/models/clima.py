@@ -1,5 +1,8 @@
 from sqlalchemy.orm import relationship
 from app.db_sqlalchemy import db_sqlalchemy as db
+from datetime import datetime
+from flask import jsonify
+
 
 class Clima(db.Model):
     __tablename__ = 'clima'
@@ -7,15 +10,35 @@ class Clima(db.Model):
     milimetrosxDia = db.Column(db.Integer)
     milimetrosxSemana= db.Column(db.Integer)
     probabilidadDePrecipitaciones = db.Column(db.Integer)
-    EstimacionDePrecipitaciones = db.Column(db.Integer)
+    estimacionDePrecipitaciones = db.Column(db.Integer)
     ultimaActualizacion = db.Column(db.DateTime,nullable=False)
 
 
+    def getClima():
+        clima = Clima.query.first()
+        return Clima
 
-    def findByName(name):
-        rol = Rol.query.filter_by(name = name).first()
-        return rol    
-    
-    def getAll():
-        roles = Rol.query.all()
-        return roles
+    def returnValid():
+        clima=getAll()
+        lastTime = datetime.datetime.now()
+        difference = lastTime - Clima.ultimaActualizacion  
+        duration_in_s = difference.total_seconds() 
+        minutes = divmod(duration_in_s, 60)[0]
+        if(minutes < 5):
+            return clima
+        else:
+            #hay que parsear con beautifoulSoup
+            return clima
+
+
+    def parseJson(clima):
+        dict = {}
+        dict ["milimetrosXDia"] = clima.milimetrosxDia
+        dict ["milimetrosxSemana"] = clima.milimetrosxSemana
+        dict ["probabilidadDePrecipitaciones"] = clima.probabilidadDePrecipitaciones
+        dict ["estimacionDePrecipitaciones"] = clima.estimacionDePrecipitaciones
+        return dict
+
+
+    def getApi():
+        return jsonify(clima=clima.parseJson(getClima()))
