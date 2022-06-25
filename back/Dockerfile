@@ -9,4 +9,6 @@ WORKDIR /app
 
 COPY . .
 
-CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
+CMD [ "export", "FLASK_APP=hello"]
+
+CMD [ "flask", "run", "--host=0.0.0.0"]
