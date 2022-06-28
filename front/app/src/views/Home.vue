@@ -2,8 +2,7 @@
     <div class="homeView">
     <div class="jumbotron text-center">
       <h1>Alertas inundaciones</h1>
-      <h3>Esta es una aplicacion informativa donde se puede visualizar centros de evacuaciones, zonas de riesgo de la ciudad y se podra configurar alertas para ser advertido en caso de posibles Inundaciones
-        Poner mas info
+      <h3>El sitio web trata de alertar a los ciudadanos, ante posibles inundaciones mediante alertas configurables de acuerdo a los puntos de interes. Ademas muestra informacion de precipitaciones actuales proximas, pasadas y mapas de informacion.
       </h3> 
       </div>  
       <CuadroHome></CuadroHome> 
@@ -19,3 +18,9 @@ export default {
   }
 }
 </script>
+<style>
+  h3{
+    padding: 2%;
+  }
+
+</style>

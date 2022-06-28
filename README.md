@@ -21,15 +21,10 @@ correr el backend:
 		docker run --name backend --network my-net  -v ${PWD}:/app -e DB_HOST=servidor_mysql -e DB_USER=usuarioDeu -e DB_PASS=passDeu -e DB_NAME=deu -p 5000:5000 python-docker 
 
 correr el front:
-	para empezar de 0:
-		npm install -g @vue/cli@3.7.0
-		vue create app --default
-	sino descargamos el codigo de git con nuestra app
-
 
 	Descargamos la img:
-		copiamos el Dockerfile en la carpeta front/app (la recien creada por vue)
-		y ejecutamos docker build -t my-app
+		nos movemos a la carpeta front
+		y ejecutamos docker build -t my-app:dev .
 
 
 	ejecutamos el container:
