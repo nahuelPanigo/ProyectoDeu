@@ -8,7 +8,7 @@
           <DesplegableCenter :center="center"> </DesplegableCenter>
         </LPopup>
       </l-marker>
-               <l-polygon v-for="(zona,index) in zonas" :key="index" :color="zona.style.fill" :lat-lng="zona.coordinates">
+               <l-polygon v-for="(zona,index) in zonas" :key="index" :color="zona.color" :fillOpacity=".65" :fillColor="zona.color" :lat-lngs="zona.coordinates">
       </l-polygon>
     </LMap>
   </div>
@@ -60,56 +60,18 @@
     methods: {
       chargeLocation(){
         var zona1={ 
-              "type": "Feature",
-              "geometry": {
-              "type": "Polygon",
-              "coordinates": [[
-                  [-34.916489, -57.930886], [-34.918979, -57.925972], [-34.919850, -57.930929], [-34.916489, -57.930886]
-                  ]]
-              },
-              "style": {
-                  "fill":"red",
-                  "stroke-width":"3",
-                  "fill-opacity":0.6
-              },
-              "className": {
-                  "baseVal":"A class name"
-              }
+              coordinates : [[-34.916489, -57.930886], [-34.918979, -57.925972], [-34.919850, -57.930929], [-34.916489, -57.930886]]
+              ,color: "#ecd105"
         }
-          var zona2={ 
-              "type": "Feature",
-              "geometry": {
-              "type": "Polygon",
-              "coordinates": [[
-                  [-34.913076, -57.970701], [-34.917466, -57.968738], [-34.920070, -57.981495], [-34.913076, -57.970701]
-                  ]]
-              },
-              "style": {
-                  "fill":"orange",
-                  "stroke-width":"3",
-                  "fill-opacity":0.6
-              },
-              "className": {
-                  "baseVal":"A class name"
+        var zona2={ 
+              coordinates:[[-34.913076, -57.970701], [-34.917466, -57.968738], [-34.920070, -57.981495], [-34.913076, -57.970701]]
+              ,color:"#ec7105"
               }
-        }
-                var zona3={ 
-              "type": "Feature",
-              "geometry": {
-              "type": "Polygon",
-              "coordinates": [[
-                  [-34.937511, -57.960029], [-34.941935, -57.954160], [-34.944334, -57.962954], [-34.937511, -57.960029]
-                  ]]
-              },
-              "style": {
-                  "fill":"yellow",
-                  "stroke-width":"3",
-                  "fill-opacity":0.6
-              },
-              "className": {
-                  "baseVal":"A class name"
-              }
-        }
+
+        var zona3={ 
+          coordinates:[[-34.937511, -57.960029], [-34.941935, -57.954160], [-34.944334, -57.962954], [-34.937511, -57.960029]]
+          ,color:"#ec052f"
+          }
         this.zonas.push(zona1);this.zonas.push(zona2); this.zonas.push(zona3); 
       }
     }

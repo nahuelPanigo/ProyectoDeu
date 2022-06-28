@@ -15,6 +15,7 @@ RUN vue
 RUN npm install vue-router@3
 RUN npm install vue2-leaflet leaflet --save
 RUN npm install geojson
+RUN npm install vue-fullpage-modal
 
 # start app
 CMD ["npm", "run", "serve"]
