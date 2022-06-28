@@ -4,9 +4,9 @@
     <h5 center>{{center.name}}</h5>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item"> <strong> Dirección: </strong> {{center.direction}} </li>
-    <li class="list-group-item"> <strong> Horario: </strong> {{ center.startHour }} - {{center.closeHour}} </li>
-    <li class="list-group-item"> <strong> Teléfono: </strong>  {{center.phone}} </li>
+    <li class="list-group-item"> <strong> Dirección: </strong> {{center.direccion}} </li>
+    <li class="list-group-item"> <strong> Horario: </strong> {{ this.center.horario }} - {{center.closeHour}} </li>
+    <li class="list-group-item"> <strong> Teléfono: </strong>  {{this.center.telefono}} </li>
   </ul>
 </div>
 </template>
@@ -18,10 +18,14 @@
     center: Object
   }
 }
+
 </script>
 
 <style scoped>
   .leaflet-popup-content{
     margin:1px;
+  }
+  .card-body{
+    text-align: center;
   }
 </style>

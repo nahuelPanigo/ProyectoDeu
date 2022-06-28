@@ -1,22 +1,21 @@
     <template>
-    <div class="home">
+    <div class="homeView">
     <div class="jumbotron text-center">
       <h1>Alertas inundaciones</h1>
-      <p>Esta es una aplicacion informativa donde se puede visualizar centros de evacuaciones, zonas de riesgo de la ciudad y se podra configurar alertas para ser advertido en caso de posibles Inundaciones
+      <h3>Esta es una aplicacion informativa donde se puede visualizar centros de evacuaciones, zonas de riesgo de la ciudad y se podra configurar alertas para ser advertido en caso de posibles Inundaciones
         Poner mas info
-      </p> 
-      <Cuadro></Cuadro>
-    </div>   
-
+      </h3> 
+      </div>  
+      <CuadroHome></CuadroHome> 
     </div>
 </template>
 <script>
-import Cuadro from '../components/Cuadro'
+import CuadroHome from '../components/CuadroHome'
 
 export default {
-  name: 'Home',
+  name: 'HomeView',
   components: {
-      Cuadro
+      CuadroHome
   }
 }
 </script>

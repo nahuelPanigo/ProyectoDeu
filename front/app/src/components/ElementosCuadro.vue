@@ -6,12 +6,9 @@
 </template>
 
 <script>
-import ElementosCuadro from '../components/ElementosCuadro.vue'
 
 export default {
-    name : "Cuadro",
-    components: { ElementosCuadro,
-            },
+    name : "ElementoCuadro",
         props:{
             titulo: String,
             valor: String

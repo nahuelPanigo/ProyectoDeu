@@ -1,15 +1,15 @@
 <template>
   <div class="Centros De Evacuacion">
-    <Map/>
+    <AllCenterMap></AllCenterMap>
   </div>
 </template>
 
 <script>
-import Map from '../components/AllCenterMap.vue'
+import AllCenterMap from '../components/AllCenterMap.vue'
 export default {
-  name: 'Centros',
+  name: 'MapaEvacuacion',
   components: {
-    allCenterMap
+    AllCenterMap
   }
 }
 </script>
