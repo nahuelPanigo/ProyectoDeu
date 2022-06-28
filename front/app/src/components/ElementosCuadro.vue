@@ -1,7 +1,8 @@
 <template>
-        <div class="col-sm-4">
-          <h3>{{titulo}}</h3>
-          <h4>{{valor}}</h4>
+        <div class="col-sm-6">
+          <i class="pepito"></i>
+          <h4>{{titulo}}</h4>
+          <h5>{{valor}}</h5>
         </div>
 </template>
 
@@ -11,7 +12,14 @@ export default {
     name : "ElementoCuadro",
         props:{
             titulo: String,
-            valor: String
-        }
+            valor: String,
+            clase: String
+        },mounted(){
+            var element =document.getElementsByClassName("pepito")[0];
+            element.className=this.clase;
+      }
 }
 </script>
+<style>
+
+</style>
