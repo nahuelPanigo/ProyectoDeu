@@ -1,9 +1,5 @@
 import Vue from 'vue'
-import Vuetify from "vuetify/lib";
-import 'vuetify/dist/vuetify.min.css'
+import FullpageModal from 'vue-fullpage-modal'
 
-Vue.use(Vuetify)
+Vue.use(FullpageModal)
 
-export default new Vuetify({
-  theme: { dark: true },
-})

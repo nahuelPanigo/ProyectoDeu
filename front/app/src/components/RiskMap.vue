@@ -79,6 +79,7 @@
 </script>
 <style>
 .mapa{
-  height: 85vh;
+  height: 80vh;
+  padding-top: 5%;
 }
 </style>
