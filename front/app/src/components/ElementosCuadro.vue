@@ -1,5 +1,6 @@
 <template>
-        <div class="col-sm-4">
+        <div class="col-sm-6 borde-cuadro">
+          <i class="pepito"></i>
           <h3>{{titulo}}</h3>
           <h4>{{valor}}</h4>
         </div>
@@ -11,7 +12,21 @@ export default {
     name : "ElementoCuadro",
         props:{
             titulo: String,
-            valor: String
-        }
+            valor: String,
+            clase: String
+        },mounted(){
+            var element =document.getElementsByClassName("pepito")[0];
+            element.className=this.clase;
+      }
 }
 </script>
+<style>
+    i{
+       font-size: 40px;
+    }
+    .borde-cuadro{
+        border-style: groove;
+        height: 150px;
+        background-color:rgb(118 150 150 / 55%);
+    }
+</style>

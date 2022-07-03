@@ -6,28 +6,24 @@
           <a class="navbar-brand" href="/home">Inundaciones La Plata</a>
         </div>
         <ul class="nav navbar-nav">
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Mapas <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-          <li class="active"><a href="/mapaEvacuacion">Centros de evacuacion</a></li>
-          <li class="active"><a href="#">Zonas de riesgo</a></li>
-          </ul>
+          <li><a id="mapaEvacuacion" class="v-step-1" href="/mapaEvacuacion" onclick="theFunction(mapaEvacuacion)">Centros de evacuacion</a></li>
+          <li><a id="mapaZonaRiesgo" class="v-step-2" href="/mapaZonasRiesgo" onclick="theFunction(mapaZonaRiesgo)">Zonas de riesgo</a></li>
           <!-- <% if current.user  -->
-          <li><a href="#">Mis alertas</a></li>
-          <li><a href="#">Mas informacion</a></li>
+          <li><a v-if="sesion === true" href="#" id="misAlertas"  class="v-step-4" onclick="misAlertas">Mis alertas</a></li>
+          <li><a href="#" id="masInformacion" class="v-step-3" onclick="masInformacion">Mas informacion</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <!-- <% if no inicio sesion -->
-          <li><a v-if="sesion === false" href="/iniciarSesion"><span class="glyphicon glyphicon-user"></span> Login</a></li>
-          <li><a v-if="sesion === false" href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a id="iniciarSesion" v-if="sesion === false" href="/iniciarSesion" onclick="theFunction(iniciarSesion)"><span class="glyphicon glyphicon-user"></span> Iniciar Sesion</a></li>
+          <li><a id="registrarse" v-if="sesion === false" href="#" onclick="theFunction(registrarse)"><span class="glyphicon glyphicon-user"></span> Registrarse </a></li>
           <!-- else -->
-          <li><a v-if="sesion === true" href="#"><span class="glyphicon glyphicon-log-in"></span> Log out</a></li>
+          <li><a id="cerrarSesion" v-if="sesion === true" href="#" onclick="theFunction(cerrarSesion)"><span class="glyphicon glyphicon-log-in"></span> Cerrar sesion</a></li>
         </ul>
       </div>
     </nav>
 </template>
 
 <script>
-
 
 export default {
   name: 'app',
@@ -42,11 +38,15 @@ export default {
       this.sesion=false
     }
   },methods: {
-          getCookie(name){
+      getCookie(name){
         const value = `; ${document.cookie}`;
         const parts = value.split(`; ${name}=`);
         if (parts.length === 2) return true;
         return false;
+      },
+      theFunction: function(id){
+        var element=document.getElementById(id);
+        element.classList.add('ace');
       }
   },
   props: ['mode']
