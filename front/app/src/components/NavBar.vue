@@ -1,5 +1,6 @@
 <template>
   <nav class="navbar navbar-inverse">
+    <h1> {{ mode }} MODE</h1>
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="/home">Inundaciones La Plata</a>
@@ -47,6 +48,7 @@ export default {
         if (parts.length === 2) return true;
         return false;
       }
-  }
+  },
+  props: ['mode']
 }
 </script>
