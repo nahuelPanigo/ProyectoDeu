@@ -1,5 +1,6 @@
 <template>
   <div class="Centros De Evacuacion">
+    <h1>Mapa de Centros de evacuacion</h1>
     <RiskMap></RiskMap>
   </div>
 </template>

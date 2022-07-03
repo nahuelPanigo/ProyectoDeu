@@ -1,8 +1,8 @@
 <template>
-        <div class="col-sm-6">
+        <div class="col-sm-6 borde-cuadro">
           <i class="pepito"></i>
-          <h4>{{titulo}}</h4>
-          <h5>{{valor}}</h5>
+          <h3>{{titulo}}</h3>
+          <h4>{{valor}}</h4>
         </div>
 </template>
 
@@ -21,5 +21,12 @@ export default {
 }
 </script>
 <style>
-
+    i{
+       font-size: 40px;
+    }
+    .borde-cuadro{
+        border-style: groove;
+        height: 150px;
+        background-color:rgb(118 150 150 / 55%);
+    }
 </style>
