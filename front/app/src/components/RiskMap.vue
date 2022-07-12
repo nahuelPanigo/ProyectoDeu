@@ -1,4 +1,4 @@
-  <template>
+<template>
 <div id="MapaDeRiesgo">
   <div class="mapa">
     <LMap :zoom="zoom" :center="center" :minZoom="minZoom" :maxZoom="maxZoom" :maxBounds="maxBounds">
@@ -26,6 +26,7 @@
   });
 
   import { LMap, LTileLayer, LMarker, LPopup,LPolygon } from 'vue2-leaflet';
+
 
 
   export default({
@@ -79,6 +80,7 @@
 </script>
 <style>
 .mapa{
+  height: 80vh;
   border-style: groove;
   margin-left: 1%;
   margin-right: 1%;
