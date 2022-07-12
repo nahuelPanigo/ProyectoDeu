@@ -12,7 +12,7 @@
 						<MapaNuevaAlerta @changeLat="form.latitude = $event"
 							@changeLong="form.length = $event"> 
 						</MapaNuevaAlerta>
-    <button type="submit" name="Crear">Crear</button>
+    <button type="submit" name="Crear" class="guardar">Crear</button>
   </b-form>
 </div>
 </template>
@@ -49,6 +49,12 @@ import MapaNuevaAlerta from '../components/MapaNuevaAlerta.vue'
 
   .nombre label{
     margin:1%;
+  }
+
+  .guardar{
+    background: #044d39;
+    margin: 2%;
+    color: white;
   }
 
 </style>
