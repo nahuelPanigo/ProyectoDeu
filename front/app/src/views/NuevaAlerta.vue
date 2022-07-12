@@ -16,6 +16,7 @@
 						</MapaNuevaAlerta>
     <button type="submit" name="Crear" class="guardar">Crear</button>
   </b-form>
+  <a href="/listaAlertas" class="volver"><button> Volver </button></a>
 </div>
 </template>
 
