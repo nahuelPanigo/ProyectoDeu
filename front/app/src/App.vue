@@ -1,8 +1,8 @@
 <template>
     <div id="app">
     <NavBar/>
-    <button v-on:click='configurationPop' class="btn" data-toggle="modal" data-target="#myModal">
-     <i class="bi bi-gear-fill" id ="config-icon"></i>
+    <button v-on:click='configurationPop' class="btn" data-toggle="modal" data-target="#myModal"> 
+     <i class="bi bi-gear-fill" id ="config-icon"></i>Configuracion
     </button>
     <ConfiguracionPopUp/>
     <v-tour name="App" :steps="steps" :options="MyOptions"></v-tour>
@@ -103,5 +103,9 @@ button{
   top: 10%;
   left: 20px;
   background: rgb(0, 0, 24);
+  font-size: x-large;
+}
+.btn i{
+  margin: 4%;
 }
 </style>

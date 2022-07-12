@@ -4,6 +4,8 @@
     <div class="modal-content back">
     <h1>Configuraciones del sitio</h1>
     <h2>Elegir tema del sitio:</h2>
+    <fieldset>
+    <legend>temas:</legend>
     <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="modo claro">
         <label class="form-check-label" for="inlineRadio1">modo claro</label>
@@ -12,6 +14,7 @@
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="modo oscuro">
         <label class="form-check-label" for="inlineRadio2">modo oscuro</label>
     </div>
+    </fieldset>
     <h2>Elegir tamaño de la letra del sitio:</h2>
       <div class="col-auto my-1">
       <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">tamaño de la letra</label>
@@ -42,7 +45,11 @@ export default {
 <style >
 
 #botones{
-    width: 100%;
+    width: 98%;
+    margin-top: 1%;
+    margin-block-end: 2%;
+    margin-left: 1%;
+    margin-right: 1%;
 }
 #botones button{
     width: 50%;
@@ -56,6 +63,9 @@ export default {
 
 label{
     margin: 1%;
+}
+legend{
+    color: aliceblue;
 }
 .back{
   background: rgb(0, 0, 24);;

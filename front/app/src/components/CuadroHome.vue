@@ -26,7 +26,7 @@ export default {
 .container{
     width: 90%;
     height: 50%;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 </style>

@@ -41,6 +41,9 @@ export default {
         if (parts.length === 2) return true;
         return false;
       },
+      delete_cookie(name) {
+        document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+      },
       theFunction: function(id){
         var element=document.getElementById(id);
         element.classList.add('ace');
