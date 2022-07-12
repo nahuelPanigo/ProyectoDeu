@@ -56,7 +56,7 @@ export default {
     if(this.getCookie("token")){
       var dict = {
             target: '.v-step-4',
-            content: 'En esta seccion se podran administrar alertas en distintos puntos de interes para advertirte ante posibles inundaciones ',
+            content: 'En esta seccion se podran administrar alertas en distintos puntos de interes para advertir sobre posibles inundaciones ',
           }
       this.steps.push(dict)
       console.log("token")

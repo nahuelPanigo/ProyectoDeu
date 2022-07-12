@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container" id="v-step-0">
       <div class="row">
           
        <ElementosCuadro titulo="milimetros diarios acumulados" valor="5 mm" clase="bi bi-moisture"></ElementosCuadro>  

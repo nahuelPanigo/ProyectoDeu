@@ -1,7 +1,9 @@
 <template>
 <div id="nuevaAlerta">
+  <a href="/listaAlertas">Mis Alertas</a> > <a class="paginaActual"> Nueva Alerta</a> 
   <div>
     <h1>Nueva Alerta</h1>
+    <p> Aqui puede configurar una nueva alerta </p>
   </div>
 <b-form @submit.prevent="onSubmit" id="form">
     <div class="nombre">
@@ -56,5 +58,9 @@ import MapaNuevaAlerta from '../components/MapaNuevaAlerta.vue'
     margin: 2%;
     color: white;
   }
-
+  .paginaActual {
+    color:white;
+    text-decoration:none;
+    pointer-events: none;
+  }
 </style>
