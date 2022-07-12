@@ -1,6 +1,6 @@
   <template>
 <div id="MapaAlertas">
-  <div class="mapa" id="v-step-0">
+  <div class="mapa">
     <LMap :zoom="zoom" :center="center" :minZoom="minZoom" :maxZoom="maxZoom" :maxBounds="maxBounds">
       <LTileLayer :url="url"></LTileLayer>
       <l-marker v-for="(alert,index) in alerts" :key="index" :lat-lng="[alert.latitude,alert.length]">

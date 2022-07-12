@@ -1,7 +1,8 @@
 <template>
  <div class="alertas">
    <h1> Mis Alertas programadas </h1>
-   <a href="/nuevaAlerta"><button> Crear nueva Alerta </button> </a>
+   <p> En este mapa se visualizan todas las alertas configuradas por el usuario. </p>
+   <a href="/nuevaAlerta"  id="v-step-5"><button> Crear nueva Alerta </button> </a>
     <AlertsMap></AlertsMap>
     <v-tour name="alertas" :steps="steps" :options="myOptions"></v-tour>
   </div>
@@ -28,15 +29,11 @@ export default {
         },
       steps: [
           {
-            target: '#v-step-0',  
+            target: '#v-step-5',  
             header: {
               title: 'Guia Rapida para el uso de la pagina',
             },
-            content: 'En este mapa se visualizan sus alertas programadas'
-          },
-          {
-            target: '#v-step-4',
-            content: 'Seleccionando una ubicacion en el mapa, podra configurar una nueva alerta',
+            content: 'Pulse aqui para configurar una alerta nueva'
           }
           ]
     }
