@@ -1,30 +1,30 @@
 <template>
-  <!-- <div id="app" :style="styleObject"> -->
-    <div id="app" :class="mode">
-    <NavBar :mode="mode"/>
-    <ConfigurationDialog/>
-    <v-tour name="App" :steps="steps"></v-tour>
+    <div id="app">
+    <NavBar/>
+    <v-tour name="App" :steps="steps" :options="myOptions"></v-tour>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
 import NavBar from './components/NavBar.vue'
-import ConfigurationDialog from './components/ConfigurationDialog.vue'
 
 export default {
   name: 'App',
   components: {
-    NavBar,
-    ConfigurationDialog
+    NavBar
   }, 
   data(){
     return{
-       styleObject: {
-        fontSize: '40px',
-        background: 'black'
-      },
-      mode: 'light',
+       myOptions: {
+          useKeyboardNavigation: true,
+          labels: {
+            buttonSkip: 'Saltear recorrido',
+            buttonPrevious: 'Anterior',
+            buttonNext: 'Siguiente',
+            buttonStop: 'Terminar recorrido'
+          }
+        },
       steps: [
           {
             target: '#v-step-0',  
