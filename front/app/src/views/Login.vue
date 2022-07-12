@@ -1,12 +1,12 @@
 <template>
   <div class="login-view">
     <h1 class="title">Iniciar Sesion</h1>
-    <form action class="form">
+    <form class="form" action="/home">
       <label class="form-label" for="email">Email:</label>
-      <input class="form-input" type="email" id="email" required placeholder="Email">
+      <input class="form-input" type="email" id="email" placeholder="Email">
       <label class="form-label" for="password">Password:</label>
       <input class="form-input" type="password" id="password" placeholder="Password">
-      <input class="form-submit" type="submit" value="Login">
+      <input class="form-submit" type="submit" value="Login" v-on:click='setAction'>
     </form>
   </div>
 </template>
@@ -14,6 +14,12 @@
 <script>
 export default {
   name: 'LoginView',
+  methods: {
+    setAction: function(){
+      document.cookie = "token=asdasfsafg3RDFMi12m3eoimlk";
+    }
+  }
+
 }
 </script>
 
