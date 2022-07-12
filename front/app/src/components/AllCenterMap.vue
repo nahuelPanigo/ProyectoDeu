@@ -79,6 +79,7 @@
 </script>
 <style>
 .mapa{
+  height: 80vh;
   border-style: groove;
   margin-left: 1%;
   margin-right: 1%;

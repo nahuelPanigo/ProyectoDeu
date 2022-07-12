@@ -1,30 +1,27 @@
 <template>
     <div id="app">
     <NavBar/>
-    <v-tour name="App" :steps="steps" :options="myOptions"></v-tour>
+    <button v-on:click='configurationPop' class="btn" data-toggle="modal" data-target="#myModal">
+     <i class="bi bi-gear-fill" id ="config-icon"></i>
+    </button>
+    <ConfiguracionPopUp/>
+    <v-tour name="App" :steps="steps" :options="MyOptions"></v-tour>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
 import NavBar from './components/NavBar.vue'
+import ConfiguracionPopUp from './components/Configuracion.vue'
 
 export default {
   name: 'App',
   components: {
-    NavBar
-  }, 
-  data(){
+    NavBar,
+    ConfiguracionPopUp
+  },data(){
     return{
-       myOptions: {
-          useKeyboardNavigation: true,
-          labels: {
-            buttonSkip: 'Saltear recorrido',
-            buttonPrevious: 'Anterior',
-            buttonNext: 'Siguiente',
-            buttonStop: 'Terminar recorrido'
-          }
-        },
+      openModal:false,
       steps: [
           {
             target: '#v-step-0',  
@@ -45,7 +42,15 @@ export default {
             target: '.v-step-3',
             content: 'Aqui se mostrara mas informacion del sitio web',
           }
-          ]
+          ],
+          MyOptions:{
+          labels: {
+              buttonSkip: 'Saltar',
+              buttonPrevious: 'Atras',
+              buttonNext: 'Siguiente',
+              buttonStop: 'Finalizar'
+          }
+          }
     }
   },created(){
     if(this.getCookie("token")){
@@ -66,6 +71,8 @@ export default {
         if (parts.length === 2) return true;
         return false;
       },
+      configurationPop:function(){
+      }
     }
 }
 
@@ -74,12 +81,27 @@ export default {
 </script>
 
 <style>
-.app {
+body{
+  background: rgb(0, 0, 24);
+}
+#app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  background-image: url('../public/backend.png');
+  color: #95b3d1;
+  background-size: 100vh;
+}
+h1{
+  padding: 1%;
+}
+button{
+  font-size:20px;
+}
+.btn{
+  position: absolute;
+  top: 10%;
+  left: 20px;
+  background: rgb(0, 0, 24);
 }
 </style>
