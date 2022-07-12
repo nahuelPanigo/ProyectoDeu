@@ -12,7 +12,6 @@
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="modo oscuro">
         <label class="form-check-label" for="inlineRadio2">modo oscuro</label>
     </div>
-    
     <h2>Elegir tamaño de la letra del sitio:</h2>
       <div class="col-auto my-1">
       <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">tamaño de la letra</label>
@@ -61,5 +60,4 @@ label{
 .back{
   background: rgb(0, 0, 24);;
 }
-
 </style>

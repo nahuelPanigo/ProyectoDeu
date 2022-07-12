@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+    <div id="app">
     <NavBar/>
     <button v-on:click='configurationPop' class="btn" data-toggle="modal" data-target="#myModal">
      <i class="bi bi-gear-fill" id ="config-icon"></i>

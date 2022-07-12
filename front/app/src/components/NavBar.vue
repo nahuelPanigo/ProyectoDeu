@@ -7,15 +7,12 @@
         <ul class="nav navbar-nav">
           <li><a id="mapaEvacuacion" class="v-step-1" href="/mapaEvacuacion" onclick="theFunction(mapaEvacuacion)">Centros de evacuacion</a></li>
           <li><a id="mapaZonaRiesgo" class="v-step-2" href="/mapaZonasRiesgo" onclick="theFunction(mapaZonaRiesgo)">Zonas de riesgo</a></li>
-          <!-- <% if current.user  -->
-          <li><a v-if="sesion === true" href="#" id="misAlertas"  class="v-step-4" onclick="misAlertas">Mis alertas</a></li>
+          <li><a v-if="sesion === true" href="/listaAlertas" id="misAlertas"  class="v-step-4" onclick="misAlertas">Mis alertas</a></li>
           <li><a href="#" id="masInformacion" class="v-step-3" onclick="masInformacion">Mas informacion</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <!-- <% if no inicio sesion -->
           <li><a id="iniciarSesion" v-if="sesion === false" href="/iniciarSesion" onclick="theFunction(iniciarSesion)"><span class="glyphicon glyphicon-user"></span> Iniciar Sesion</a></li>
           <li><a id="registrarse" v-if="sesion === false" href="#" onclick="theFunction(registrarse)"><span class="glyphicon glyphicon-user"></span> Registrarse </a></li>
-          <!-- else -->
           <li><a id="cerrarSesion" v-if="sesion === true" href="#" onclick="theFunction(cerrarSesion)"><span class="glyphicon glyphicon-log-in"></span> Cerrar sesion</a></li>
         </ul>
       </div>
@@ -28,7 +25,8 @@ export default {
   name: 'app',
   data(){
     return {
-      sesion:true
+      sesion:true,
+      fontSize: "chico"
     }
   },created(){
     if(this.getCookie("token")){

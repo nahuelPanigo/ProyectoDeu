@@ -7,7 +7,7 @@
       </div>  
       <h3 class="text-center"> Precipitaciones Acumuladas y Estimaciones </h3>
       <CuadroHome></CuadroHome> 
-    </div>
+      </div>
 </template>
 <script>
 import CuadroHome from '../components/CuadroHome'
