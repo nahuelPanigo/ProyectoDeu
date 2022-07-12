@@ -1,7 +1,7 @@
 <template>
   <div class="Centros De Evacuacion">
     <h1>Mapa Zonas de riesgo</h1>
-    <p> En este mapa se visualizan las distintas zonas de la ciudad, distinguiendose los niveles de riesgo.</p>
+    <h2> En este mapa se visualizan las distintas zonas de la ciudad, distinguiendose los niveles de riesgo.</h2>
     <RiskMap></RiskMap>
   </div>
 </template>
