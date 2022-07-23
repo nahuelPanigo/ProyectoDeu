@@ -50,6 +50,7 @@ export default {
             setProperty('rgb(0, 0, 24)','#95b3d1','#044d39','rgba(19, 35, 47, 0.9)')
           }else{
             createCookie("tema","claro")
+            
             setProperty('#c3c3d6','#000000','#8a91b7','rgb(145 170 189 / 51%)')
           }
       },
