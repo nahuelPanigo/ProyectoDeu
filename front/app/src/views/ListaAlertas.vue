@@ -1,7 +1,7 @@
 <template>
  <div class="alertas">
    <h1> Mis Alertas programadas </h1>
-   <p> En este mapa se visualizan todas las alertas configuradas por el usuario. </p>
+   <h2> En este mapa se visualizan todas las alertas configuradas por el usuario. </h2>
    <a href="/nuevaAlerta"  id="v-step-5"><button> Crear nueva Alerta </button> </a>
     <AlertsMap></AlertsMap>
     <v-tour name="alertas" :steps="steps" :options="myOptions"></v-tour>

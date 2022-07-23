@@ -3,7 +3,7 @@
   <a href="/listaAlertas">Mis Alertas</a> > <a class="paginaActual"> Nueva Alerta</a> 
   <div>
     <h1>Nueva Alerta</h1>
-    <p> Aqui puede configurar una nueva alerta </p>
+    <h2> Aqui puede configurar una nueva alerta </h2>
   </div>
 <b-form @submit.prevent="onSubmit" id="form">
     <div class="nombre">
@@ -16,6 +16,7 @@
 						</MapaNuevaAlerta>
     <button type="submit" name="Crear" class="guardar">Crear</button>
   </b-form>
+  <a href="/listaAlertas" class="volver"><button> Volver </button></a>
 </div>
 </template>
 
