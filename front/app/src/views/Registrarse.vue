@@ -1,18 +1,19 @@
 <template>
   <div class="login-view">
-    <h1 class="title">Iniciar Sesion</h1>
-    <form class="form" action="/home">
-      <label class="form-label" for="email">Ingrese su email:</label>
+    <h1 class="title">Registrarse</h1>
+    <form class="form" action="/iniciarSesion">
+     <label class="form-label" for="nombre"> Ingrese su nombre:</label>
+      <input class="form-input" type="text" id="nombre" placeholder="Nombre">
+      <label class="form-label" for="email"> Ingrese un email:</label>
       <input class="form-input" type="email" id="email" placeholder="Email">
-      <label class="form-label" for="contraseña">Ingrese la contraseña:</label>
+      <label class="form-label" for="contraseña">Ingrese una contraseña:</label>
       <input class="form-input" type="password" id="password" placeholder="Contraseña">
-      <input class="form-submit" type="submit" value="Entrar" v-on:click='setAction'>
+      <input class="form-submit" type="submit" value="Finalizar registro">
     </form>
   </div>
 </template>
 
 <script>
-
 export default {
   name: 'LoginView',
   methods: {
@@ -40,7 +41,7 @@ export default {
   width: 20%;
   min-width: 350px;
   max-width: 100%;
-  background-color: var(--cuadros-color);
+  background: rgba(19, 35, 47, 0.9);
   border-radius: 5px;
   padding: 40px;
   box-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.3);
@@ -58,7 +59,7 @@ export default {
   color: var(--primary-color);
 }
 .form-submit {
-  background: var(--button-color);
+  background: #044d39;
   border: none;
   color: var(--primary-color);
   margin-top: 3rem;
