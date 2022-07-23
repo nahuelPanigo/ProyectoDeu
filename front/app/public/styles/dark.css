@@ -5,15 +5,32 @@
     --header-back: #1a1d24;
     --header-text: #eee;
     --cuadros-color: rgba(19, 35, 47, 0.9);
+    --h1-size: 20px;
+    --h2-size: 15px;
+    --h3-size: 10px;
+    --font-size: 10px;
   }
   
   body {
     background-color: var(--back-color);
     color: var(--primary-color);
+    font-size: var(--font-size);
+  }
+  h1 {
+    font-size: var(--h1-size);
+  }
+
+  h2 {
+    font-size: var(--h2-size);
+  }
+
+  h3 {
+    font-size: var(--h3-size);
   }
   header {
     background-color: var(--header-back);
     color: var(--header-text);
+    font-size: var(--font-size);
   }
   
   .box img {

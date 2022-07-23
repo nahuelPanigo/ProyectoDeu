@@ -36,7 +36,7 @@
 
 
 <script>
-import {getCookie,createCookie,setProperty} from '../../public/utils/helpers.js'
+import {getCookie,createCookie,setProperty,changeSize} from '../../public/utils/helpers.js'
 export default {
     name : "ConfiguracionPopUp",
     mounted(){
@@ -55,8 +55,8 @@ export default {
           const fontSize=document.getElementById('inlineFormCustomSelect')
           const sizeSelected=fontSize.options[fontSize.selectedIndex].value
           if(sizeSelected === 'medio'){
-            this.createCookie("size", "mediano")
-            this.changeSizeMedio()
+            createCookie("size", "mediano")
+            changeSize('300px','400px','30px','20px')
           }
       },
       setTema(tema){

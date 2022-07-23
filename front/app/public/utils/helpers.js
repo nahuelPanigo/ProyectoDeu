@@ -35,6 +35,15 @@ function setVal(tema){
     setProperty('#c3c3d6','#000000','#8a91b7','rgb(145 170 189 / 51%)')
   }
 }
+function changeSize(font, h1, h2, h3){
+  var declaration = document.styleSheets[16].cssRules[0].style;
+  console.log(declaration)
+  declaration.setProperty('--font-size',font)
+  declaration.setProperty('--h1-size',h1)
+  declaration.setProperty('--h2-size',h2)
+  declaration.setProperty('--h3-size',h3)
+  console.log(declaration)
+}
 
 
-export{getCookie,createCookie,setProperty,setVal,getCookieValue}
+export{getCookie,createCookie,setProperty,setVal,getCookieValue,changeSize}
