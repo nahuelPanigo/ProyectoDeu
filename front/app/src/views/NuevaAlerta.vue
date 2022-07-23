@@ -56,10 +56,10 @@ import MapaNuevaAlerta from '../components/MapaNuevaAlerta.vue'
   .guardar{
     background: #044d39;
     margin: 2%;
-    color: white;
+    color: var(--primary-color);
   }
   .paginaActual {
-    color:white;
+    color: var(--primary-color);
     text-decoration:none;
     pointer-events: none;
   }

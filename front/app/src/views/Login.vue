@@ -46,7 +46,7 @@ export default {
 }
 .form-label {
   margin-top: 2rem;
-  color: white;
+  color: var(--primary-color);
   margin-bottom: 0.5rem;
 }
 .form-input {
@@ -54,12 +54,12 @@ export default {
   background: none;
   background-image: none;
   border: 1px solid white;
-  color: white;
+  color: var(--primary-color);
 }
 .form-submit {
   background: #044d39;
   border: none;
-  color: white;
+  color: var(--primary-color);
   margin-top: 3rem;
   padding: 1rem 0;
   cursor: pointer;
