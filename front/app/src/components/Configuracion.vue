@@ -36,20 +36,21 @@
 
 
 <script>
+import {getCookie,createCookie,setProperty} from '../../public/utils/helpers.js'
 export default {
     name : "ConfiguracionPopUp",
     mounted(){
-      this.setTema(this.getCookie("tema"));
+      this.setTema(getCookie("tema"));
     },
     methods :{
       changeConfig: function(){
           const radioOscuro=document.getElementById('inlineClaro');
-          if(radioOscuro.checked){
-            this.createCookie("tema","oscuro")
-            this.changeDark()
+          if(!radioOscuro.checked){
+            createCookie("tema","oscuro")
+            setProperty('rgb(0, 0, 24)','#95b3d1','#044d39','rgba(19, 35, 47, 0.9)')
           }else{
-            this.createCookie("tema","claro")
-            this.changeLigth()
+            createCookie("tema","claro")
+            setProperty('#c3c3d6','#000000','#8a91b7','rgb(145 170 189 / 51%)')
           }
           const fontSize=document.getElementById('inlineFormCustomSelect')
           const sizeSelected=fontSize.options[fontSize.selectedIndex].value
@@ -58,25 +59,6 @@ export default {
             this.changeSizeMedio()
           }
       },
-      getCookie(name){
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) return true;
-        return false;
-      },createCookie(name,value) {
-          var date = new Date();
-          date.setTime(date.getTime()+(10*24*60*60*1000));
-          var expires = "; expires="+date.toGMTString();
-          document.cookie = name+"="+value+expires+"; path=/"; 
-      },changeDark(){
-        var declaration = document.styleSheets[16].cssRules[0].style;
-        declaration.setProperty('--back-color', 'rgb(0, 0, 24)');
-        declaration.setProperty('--primary-color', '#95b3d1');
-      },changeLigth(){
-        var declaration = document.styleSheets[16].cssRules[0].style;
-        declaration.setProperty('--back-color', '#eee');
-        declaration.setProperty('--primary-color', '#000000');
-      },     
       setTema(tema){
         var radio="";
         switch (tema){
@@ -104,19 +86,19 @@ export default {
 }
 #botones button{
     width: 50%;
-    background: #044d39;
+    background: var(--button-color);
 }
 #inlineFormCustomSelect{
     padding: 1%;
     margin: 1%;
-    background: #044d39;
+    background: var(--button-color);
 }
 
 label{
     margin: 1%;
 }
 legend{
-    color: aliceblue;
+    color: var(--primary-color);
 }
 .back{
   background: var(--back-color)

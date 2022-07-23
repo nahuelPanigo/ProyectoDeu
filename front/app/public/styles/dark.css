@@ -1,8 +1,10 @@
 :root {
     --back-color: rgb(0, 0, 24);
     --primary-color:  #95b3d1;
+    --button-color:#044d39;
     --header-back: #1a1d24;
     --header-text: #eee;
+    --cuadros-color: rgba(19, 35, 47, 0.9);
   }
   
   body {
