@@ -1,12 +1,14 @@
 <template>
   <div class="login-view">
-    <h1 class="title">Iniciar Sesion</h1>
-    <form class="form" action="/home">
-      <label class="form-label" for="email">Ingrese su email:</label>
+    <h1 class="title">Registrarse</h1>
+    <form class="form" action="/iniciarSesion">
+     <label class="form-label" for="nombre"> Ingrese su nombre:</label>
+      <input class="form-input" type="text" id="nombre" placeholder="Nombre">
+      <label class="form-label" for="email"> Ingrese un email:</label>
       <input class="form-input" type="email" id="email" placeholder="Email">
-      <label class="form-label" for="contraseña">Ingrese la contraseña:</label>
+      <label class="form-label" for="contraseña">Ingrese una contraseña:</label>
       <input class="form-input" type="password" id="password" placeholder="Contraseña">
-      <input class="form-submit" type="submit" value="Entrar" v-on:click='setAction'>
+      <input class="form-submit" type="submit" value="Finalizar registro">
     </form>
   </div>
 </template>
