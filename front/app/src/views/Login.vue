@@ -12,6 +12,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'LoginView',
   methods: {
@@ -39,7 +40,7 @@ export default {
   width: 20%;
   min-width: 350px;
   max-width: 100%;
-  background: rgba(19, 35, 47, 0.9);
+  background-color: var(--cuadros-color);
   border-radius: 5px;
   padding: 40px;
   box-shadow: 0 4px 10px 4px rgba(0, 0, 0, 0.3);
@@ -57,7 +58,7 @@ export default {
   color: var(--primary-color);
 }
 .form-submit {
-  background: #044d39;
+  background: var(--button-color);
   border: none;
   color: var(--primary-color);
   margin-top: 3rem;

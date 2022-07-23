@@ -27,6 +27,6 @@ export default {
     .borde-cuadro{
         border-style: groove;
         height: 150px;
-        background-color:rgb(118 150 150 / 55%);
+        background-color: var(--cuadros-color);
     }
 </style>

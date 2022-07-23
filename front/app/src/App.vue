@@ -13,6 +13,8 @@
 <script>
 import NavBar from './components/NavBar.vue'
 import ConfiguracionPopUp from './components/Configuracion.vue'
+import {getCookie,createCookie,getCookieValue,setVal} from '../public/utils/helpers.js'
+
 
 export default {
   name: 'App',
@@ -53,10 +55,10 @@ export default {
           }
     }
   },created(){
-    if(this.getCookie("tema")==false){
-      this.createCookie("tema","claro")
+    if(getCookie("tema")==false){
+      createCookie("tema","claro")
     }
-    if(this.getCookie("token")){
+    if(getCookie("token")){
       var dict = {
             target: '.v-step-4',
             content: 'En esta seccion se podran administrar alertas en distintos puntos de interes para advertir sobre posibles inundaciones ',
@@ -64,21 +66,10 @@ export default {
       this.steps.push(dict)
     }
   },mounted: function () {
-      
-      this.$tours['App'].start()
+    this.$tours['App'].start()
+    setVal(getCookieValue("tema"))
     },
     methods:{
-        getCookie(name){
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) return true;
-        return false;
-      },createCookie(name,value) {
-          var date = new Date();
-          date.setTime(date.getTime()+(10*24*60*60*1000));
-          var expires = "; expires="+date.toGMTString();
-          document.cookie = name+"="+value+expires+"; path=/"; 
-      },
       configurationPop:function(){
       }
     }
