@@ -51,6 +51,12 @@ export default {
             this.createCookie("tema","claro")
             this.changeLigth()
           }
+          const fontSize=document.getElementById('inlineFormCustomSelect')
+          const sizeSelected=fontSize.options[fontSize.selectedIndex].value
+          if(sizeSelected === 'medio'){
+            this.createCookie("size", "mediano")
+            this.changeSizeMedio()
+          }
       },
       getCookie(name){
         const value = `; ${document.cookie}`;
@@ -70,7 +76,7 @@ export default {
         var declaration = document.styleSheets[16].cssRules[0].style;
         declaration.setProperty('--back-color', '#eee');
         declaration.setProperty('--primary-color', '#000000');
-      },
+      },     
       setTema(tema){
         var radio="";
         switch (tema){
