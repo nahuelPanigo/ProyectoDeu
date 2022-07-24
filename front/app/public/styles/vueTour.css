@@ -1,4 +1,8 @@
+:root{
+  --font-size-tour: 2.5rem;
+}
 .v-step__button{
-    font-size: 1.5rem !important;
-  
+    font-size: var(--font-size-tour) !important;
+    height: auto !important;
+    padding: 1rem .4rem !important;
   }

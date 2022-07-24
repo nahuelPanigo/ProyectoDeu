@@ -4,9 +4,9 @@
     <form class="form" action="/home">
       <label class="form-label" for="email">Email:</label>
       <input class="form-input" type="email" id="email" placeholder="Email">
-      <label class="form-label" for="password">Password:</label>
-      <input class="form-input" type="password" id="password" placeholder="Password">
-      <input class="form-submit" type="submit" value="Login" v-on:click='setAction'>
+      <label class="form-label" for="password">Contraseña:</label>
+      <input class="form-input" type="password" id="password" placeholder="contraseña">
+      <input class="form-submit" type="submit" value="Ingresar" v-on:click='setAction'>
     </form>
   </div>
 </template>
@@ -32,12 +32,12 @@ export default {
 .title {
   text-align: center;
 }
-.form {
+.form { 
   margin: 3rem auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 20%;
+  width: 35%;
   min-width: 350px;
   max-width: 100%;
   background-color: var(--cuadros-color);

@@ -6,11 +6,13 @@ import MapaEvacuacion from './views/MapaEvacuacion.vue'
 import RiskMapView from './views/MapaZonaRiesgos.vue'
 import ListaAlertas from './views/ListaAlertas.vue'
 import NuevaAlerta from './views/NuevaAlerta.vue'
+import RegistrarseView from './views/SignUp.vue'
 
 
 Vue.use(Router)
 const routes = [
   { path: '/iniciarSesion', name: 'login', component: LoginView }, 
+  { path: '/registrarse', name:'registro', component: RegistrarseView},
   { path: '/home', name: 'home', component: HomeView }, 
   { path: '/mapaEvacuacion', name: 'mapaEvacuacion', component: MapaEvacuacion },
   { path: '/mapaZonasRiesgo', name: 'riskMapView', component: RiskMapView },

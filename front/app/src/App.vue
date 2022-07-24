@@ -2,7 +2,7 @@
     <div id="app">
     <NavBar/>
     <button v-on:click='configurationPop' class="btn" data-toggle="modal" data-target="#myModal"> 
-     <i class="bi bi-gear-fill" id ="config-icon"></i>Configuracion
+     <i class="bi bi-gear-fill" id ="config-icon">Configuracion</i>
     </button>
     <ConfiguracionPopUp/>
     <v-tour name="App" :steps="steps" :options="MyOptions"></v-tour>
@@ -13,7 +13,7 @@
 <script>
 import NavBar from './components/NavBar.vue'
 import ConfiguracionPopUp from './components/Configuracion.vue'
-import {getCookie,createCookie,getCookieValue,setVal} from '../public/utils/helpers.js'
+import {getCookie,createCookie,getCookieValue,setVal, setFontSize} from '../public/utils/helpers.js'
 
 
 export default {
@@ -34,11 +34,7 @@ export default {
           },
           {
             target: '.v-step-1',
-            content: 'Aqui podras ver los centros de evacuacion existentes'
-          },
-          {
-            target: '.v-step-2',
-            content: 'En esta seccion se podra visualizar las zonas de riesgo en un mapa de la ciudad de la plata',
+            content: 'Aqui podras ver los mapas con informacion de los centros de evacuacion existentes y de las zonas de riesgo'
           },
           {
             target: '.v-step-3',
@@ -68,6 +64,7 @@ export default {
   },mounted: function () {
     this.$tours['App'].start()
     setVal(getCookieValue("tema"))
+    setFontSize(getCookieValue("size"))
     },
     methods:{
       configurationPop:function(){
@@ -90,17 +87,13 @@ export default {
 h1{
   padding: 1%;
 }
-button{
-  font-size:20px;
-}
 .btn{
   position: absolute;
-  top: 10%;
   left: 20px;
   background: var(--back-color);
-  font-size: x-large;
 }
 .btn i{
   margin: 4%;
+  font-size:var(--font-size);
 }
 </style>

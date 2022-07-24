@@ -35,6 +35,29 @@ function setVal(tema){
     setProperty('#c3c3d6','#000000','#8a91b7','rgb(145 170 189 / 51%)')
   }
 }
+function changeSize(font, h1, h2, h3, h4, tour, icon){
+  var declaration = document.styleSheets[16].cssRules[0].style;
+  var declarationTour = document.styleSheets[17].cssRules[0].style;
+  declaration.setProperty('--font-size',font)
+  declaration.setProperty('--h1-size',h1)
+  declaration.setProperty('--h2-size',h2)
+  declaration.setProperty('--h3-size',h3)
+  declaration.setProperty('--h4-size',h4)
+  declaration.setProperty('--size-icon',icon)
+  declarationTour.setProperty('--font-size-tour', tour)
+}
+
+function setFontSize(size){
+  if (size === 'chico'){
+    changeSize('20px', '25px', '20px', '10px', '8px', '2rem','30px')
+  } else {
+    if (size === 'medio'){
+      changeSize('30px','40px','30px','20px', '18px', '2.5rem', '50px')
+    } else {
+        changeSize('40px', '50px', '40px', '30px', '25px', '3rem','85px')
+    }
+  }
+}
 
 
-export{getCookie,createCookie,setProperty,setVal,getCookieValue}
+export{getCookie,createCookie,setProperty,setVal,getCookieValue, changeSize, setFontSize}

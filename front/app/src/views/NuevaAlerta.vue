@@ -16,7 +16,7 @@
 						</MapaNuevaAlerta>
     <button type="submit" name="Crear" class="guardar">Crear</button>
   </b-form>
-  <a href="/listaAlertas" class="volver"><button> Volver </button></a>
+  <a href="/listaAlertas" ><button class="volver"> Volver </button></a>
 </div>
 </template>
 
@@ -55,13 +55,19 @@ import MapaNuevaAlerta from '../components/MapaNuevaAlerta.vue'
   }
 
   .guardar{
-    background: #044d39;
-    margin: 2%;
-    color: var(--primary-color);
+    background-color: var(--button-color);
+    color: var(--primary-color)
   }
+  
+  .volver{
+    background-color: var(--button-color);
+    color: var(--primary-color)
+  }
+ 
   .paginaActual {
     color: var(--primary-color);
     text-decoration:none;
     pointer-events: none;
   }
+
 </style>

@@ -22,11 +22,11 @@ export default {
 </script>
 <style>
     i{
-       font-size: 40px;
+       font-size: var(--size-icon);
     }
     .borde-cuadro{
         border-style: groove;
-        height: 150px;
+        height: auto;
         background-color: var(--cuadros-color);
     }
 </style>

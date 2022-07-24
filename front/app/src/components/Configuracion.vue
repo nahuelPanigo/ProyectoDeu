@@ -5,7 +5,6 @@
     <h1>Configuraciones del sitio</h1>
     <h2>Elegir tema del sitio:</h2>
     <fieldset>
-    <legend>temas:</legend>
     <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineClaro" value="modo claro">
         <label class="form-check-label" for="inlineClaro">modo claro</label>
@@ -36,7 +35,7 @@
 
 
 <script>
-import {getCookie,createCookie,setProperty} from '../../public/utils/helpers.js'
+import {getCookie,createCookie,setProperty, changeSize} from '../../public/utils/helpers.js'
 export default {
     name : "ConfiguracionPopUp",
     mounted(){
@@ -52,6 +51,20 @@ export default {
             createCookie("tema","claro")
             
             setProperty('#c3c3d6','#000000','#8a91b7','rgb(145 170 189 / 51%)')
+          }
+          const fontSize=document.getElementById('inlineFormCustomSelect')
+          const sizeSelected=fontSize.options[fontSize.selectedIndex].value
+          if(sizeSelected === 'medio'){
+            createCookie("size", "mediano")
+            changeSize('30px','40px','30px','20px','18px', '2.5rem', '50px')
+          } else {
+            if (sizeSelected === 'chico'){
+              createCookie("size", "chico")
+              changeSize('20px', '25px', '20px', '10px', '8px', '2rem', '30px')
+            } else {
+              createCookie("size", "grande")
+              changeSize('40px', '50px', '40px', '30px','25px', '3rem', '85px')
+            }
           }
       },
       setTema(tema){
@@ -73,14 +86,14 @@ export default {
 <style >
 
 #botones{
-    width: 98%;
-    margin-top: 1%;
-    margin-block-end: 2%;
-    margin-left: 1%;
-    margin-right: 1%;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
 }
 #botones button{
     width: 50%;
+    flex-grow: 1;
     background: var(--button-color);
 }
 #inlineFormCustomSelect{
@@ -88,7 +101,6 @@ export default {
     margin: 1%;
     background: var(--button-color);
 }
-
 label{
     margin: 1%;
 }
