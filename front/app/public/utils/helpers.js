@@ -49,12 +49,12 @@ function changeSize(font, h1, h2, h3, h4, tour, icon){
 
 function setFontSize(size){
   if (size === 'chico'){
-    changeSize('20px', '25px', '20px', '10px', '8px', '2rem','30px')
+    changeSize('10px', '25px', '20px', '15px', '12px', '2rem','30px')
   } else {
-    if (size === 'medio'){
-      changeSize('30px','40px','30px','20px', '18px', '2.5rem', '50px')
+    if (size === 'mediano'){
+      changeSize('15px','30px','25px','20px', '18px', '2.5rem', '45px')
     } else {
-        changeSize('40px', '50px', '40px', '30px', '25px', '3rem','85px')
+        changeSize('20px', '40px', '35px', '30px', '25px', '3rem','65px')
     }
   }
 }

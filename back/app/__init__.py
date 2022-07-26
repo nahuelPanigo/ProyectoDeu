@@ -7,6 +7,7 @@ from app.resources import user
 from app.resources import perimetro
 from app.resources import config as configuration
 from app.resources import clima
+from flask_cors import CORS
 
 
 def create_app(environment="development"):
@@ -35,12 +36,14 @@ def create_app(environment="development"):
 
         db.create_all()
 
+
+    cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
     #rutas del config
-    app.add_url_rule("/api_config", "config_get_configuration", configuration.getConfiguration)
+    app.add_url_rule("/api/config", "config_get_configuration", configuration.getConfiguration)
     
     #rutas de usuario login,registrarse
-    app.add_url_rule("/registrarse","user_ApiCreate",user.apiCreate, methods=["POST"])
-    app.add_url_rule("/login","user_ApiLogin",user.apiLogin, methods=["POST"])    
+    app.add_url_rule("/api/user/registrarse","user_ApiCreate",user.apiCreate, methods=["POST"])
+    app.add_url_rule("/api/user/login","user_ApiLogin",user.apiLogin, methods=["POST"])    
 
     #rutas del clima
 

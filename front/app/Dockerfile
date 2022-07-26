@@ -17,6 +17,7 @@ RUN npm install vue2-leaflet leaflet --save
 RUN npm install geojson
 RUN npm install vue-tour
 RUN npm install vue-hotkeys-rt -S
+RUN npm install axios
 
 # start app
 CMD ["npm", "run", "serve"]

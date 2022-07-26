@@ -56,14 +56,14 @@ export default {
           const sizeSelected=fontSize.options[fontSize.selectedIndex].value
           if(sizeSelected === 'medio'){
             createCookie("size", "mediano")
-            changeSize('30px','40px','30px','20px','18px', '2.5rem', '50px')
+            changeSize('15px','30px','25px','20px', '18px', '1.5rem', '45px')
           } else {
             if (sizeSelected === 'chico'){
               createCookie("size", "chico")
-              changeSize('20px', '25px', '20px', '10px', '8px', '2rem', '30px')
+              changeSize('12px', '25px', '20px', '15px', '12px', '1rem','30px')
             } else {
               createCookie("size", "grande")
-              changeSize('40px', '50px', '40px', '30px','25px', '3rem', '85px')
+              changeSize('20px', '40px', '35px', '30px', '25px', '2rem','65px')
             }
           }
       },

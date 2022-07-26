@@ -21,4 +21,4 @@ def apiLogin():
 	user=User.findByEmail(content["email"])
 	if(user is None)|(user.password != content["password"]):
 		return jsonify(errores={"error_login":"el usuario y/o la contraseña  son incorrectos"})
-	return jsonify(user=User.toString(user))
+	return jsonify(token=User.toString(user))

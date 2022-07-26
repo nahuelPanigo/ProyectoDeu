@@ -1,7 +1,7 @@
 <template>
   <div class="login-view">
     <h1 class="title">Iniciar Sesion</h1>
-    <form class="form" action="/home">
+    <form class="form" >
       <label class="form-label" for="email">Email:</label>
       <input class="form-input" type="email" id="email" placeholder="Email">
       <label class="form-label" for="password">Contraseña:</label>
@@ -12,12 +12,25 @@
 </template>
 
 <script>
+import axios from "axios";
+import {urlApi} from '../../public/utils/const.js'
 
 export default {
   name: 'LoginView',
   methods: {
     setAction: function(){
-      document.cookie = "token=asdasfsafg3RDFMi12m3eoimlk";
+       console.log("en")
+      axios.post(urlApi+'/api/user/login',{"password": "contra1",
+"email": "nahpanigo99@gmail.com"}).then((Response)=> {
+      if(Response["data"]["token"] != null){
+        document.cookie = "token="+ Response["data"]["token"]
+        console.log("entra")
+        this.$router.push({ name: 'home' })
+      }else{
+         console.log("y acaa")
+        alert(Response["data"]["error_login"])
+      }
+      });
     }
   }
 

@@ -13,7 +13,7 @@
 <script>
 import NavBar from './components/NavBar.vue'
 import ConfiguracionPopUp from './components/Configuracion.vue'
-import {getCookie,createCookie,getCookieValue,setVal, setFontSize} from '../public/utils/helpers.js'
+import {getCookie,createCookie,getCookieValue,setVal,setFontSize} from '../public/utils/helpers.js'
 
 
 export default {
