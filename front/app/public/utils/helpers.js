@@ -1,26 +1,37 @@
 function getCookie(name){
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return true;
-    return false;
+  var col=document.cookie.split('; ')
+  for(var i=0; i < col.length; i++) {
+    var res=col[i].split('=')
+    if(res[0] == name){
+      console.log(res[0])
+      return true
+    }
+  }
+    return false
   }
 
 function getCookieValue(name){
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    try{
-      return parts[1];
-    }catch{
-      return null
+    var col=document.cookie.split('; ')
+    for(var i=0; i < col.length; i++) {
+      var res=col[i].split('=')
+      if(res[0]== name){
+        return res[1]
+      }
     }
+      return null
   }
 
 function createCookie(name,value) {
       var date = new Date();
       date.setTime(date.getTime()+(10*24*60*60*1000));
       var expires = "; expires="+date.toGMTString();
-      document.cookie = name+"="+value+expires+"; path=/"
+      document.cookie=name+"="+value+expires+"; path=/"
     }
+
+ function deleteCookie(name){
+  document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+ } 
+
 function setProperty(colorback,colorprimary,colorbutton,colorcuadros){
       var declaration = document.styleSheets[16].cssRules[0].style;
       declaration.setProperty('--back-color', colorback);
@@ -60,4 +71,4 @@ function setFontSize(size){
 }
 
 
-export{getCookie,createCookie,setProperty,setVal,getCookieValue, changeSize, setFontSize}
+export{getCookie,createCookie,setProperty,setVal,getCookieValue, changeSize, setFontSize,deleteCookie}

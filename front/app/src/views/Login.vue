@@ -6,7 +6,7 @@
       <input class="form-input" type="email" id="email" placeholder="Email">
       <label class="form-label" for="password">Contraseña:</label>
       <input class="form-input" type="password" id="password" placeholder="contraseña">
-      <input class="form-submit" type="submit" value="Ingresar" v-on:click='setAction'>
+      <a href="#" class="form-submit" v-on:click='setAction'>Ingresar</a>
     </form>
   </div>
 </template>
@@ -14,23 +14,26 @@
 <script>
 import axios from "axios";
 import {urlApi} from '../../public/utils/const.js'
+import {createCookie} from '../../public/utils/helpers.js'
 
 export default {
   name: 'LoginView',
   methods: {
     setAction: function(){
-       console.log("en")
-      axios.post(urlApi+'/api/user/login',{"password": "contra1",
-"email": "nahpanigo99@gmail.com"}).then((Response)=> {
+      axios.post(urlApi+'/api/user/login',this.getjson()).then((Response)=> {
       if(Response["data"]["token"] != null){
-        document.cookie = "token="+ Response["data"]["token"]
-        console.log("entra")
+        createCookie("token",Response["data"]["token"]["username"])
         this.$router.push({ name: 'home' })
       }else{
-         console.log("y acaa")
-        alert(Response["data"]["error_login"])
+        console.log(Response)
+        alert(Response["data"]["errores"]["error_login"])
       }
       });
+    },getjson(){
+      return {
+        "password" : document.getElementById("password").value,
+        "email" : document.getElementById("email").value,
+      }
     }
   }
 

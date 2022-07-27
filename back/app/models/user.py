@@ -1,7 +1,7 @@
 import datetime
 from app.db_sqlalchemy import db_sqlalchemy as db
 from app.models.config import Config
-from sqlalchemy import or_, and_
+from sqlalchemy import null, or_, and_
 from datetime import date
 import re
 
@@ -27,7 +27,10 @@ class User(db.Model):
 
     #busca un usuario por email
     def findByEmail(email):
-        return User.query.filter_by(email = email).first()
+        try:
+            return User.query.filter_by(email = email).first()
+        except:
+            return None
 
 
     #busca un usuario por id

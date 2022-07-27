@@ -22,6 +22,9 @@
 </template>
 
 <script>
+import {getCookie,deleteCookie} from '../../public/utils/helpers.js'
+
+
 
 export default {
   name: 'app',
@@ -30,22 +33,16 @@ export default {
       sesion:true,
       fontSize: "chico"
     }
-  },created(){
-    if(this.getCookie("token")){
+  },mounted(){
+    console.log(getCookie("token"))
+    if(getCookie("token")){
       this.sesion=true
     }else{
       this.sesion=false
     }
   },methods: {
-      getCookie(name){
-        const value = `; ${document.cookie}`;
-        const parts = value.split(`; ${name}=`);
-        if (parts.length === 2) return true;
-        return false;
-      },
       delete_cookie(name) {
-        document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
-        window.location='/home'
+        deleteCookie(name);
       },
       theFunction: function(id){
         var element=document.getElementById(id);

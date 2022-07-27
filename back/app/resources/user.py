@@ -17,8 +17,12 @@ def apiCreate():
 
 
 def apiLogin():
-	content=request.json
-	user=User.findByEmail(content["email"])
-	if(user is None)|(user.password != content["password"]):
+	try:
+		content=request.json
+		user=User.findByEmail(content["email"])
+		if(user is not None):
+			if(user.password == content["password"]):
+				return jsonify(token=User.toString(user))
 		return jsonify(errores={"error_login":"el usuario y/o la contraseña  son incorrectos"})
-	return jsonify(token=User.toString(user))
+	except:	
+		return jsonify(errores={"error_login":"el usuario y/o la contraseña  son incorrectos"})
