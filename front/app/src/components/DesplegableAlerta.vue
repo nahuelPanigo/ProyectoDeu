@@ -1,11 +1,10 @@
 <template>
 <div id="DesplegableAlerta" class="card" style="width: 18rem">
   <div class="card-body">
-    <h5 center>{{center.name}}</h5>
+    <h4 >Alerta</h4>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item"> <strong> Dirección: </strong> {{center.direccion}} </li>
-    <li class="list-group-item"><button>Eliminar</button></li>
+    <button class="second-icon"><i class="bi bi-trash3 second-icon"></i> Eliminar</button>
   </ul>
 </div>
 </template>
@@ -26,5 +25,8 @@
   }
   .card-body{
     text-align: center;
+  }
+  .second-icon{
+    font-size: var(--font-size)
   }
 </style>

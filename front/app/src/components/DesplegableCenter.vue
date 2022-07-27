@@ -1,7 +1,7 @@
 <template>
 <div id="DesplegableCenter" class="card" style="width: 18rem">
   <div class="card-body">
-    <h5 center>{{center.name}}</h5>
+    <h4 center>{{center.name}}</h4>
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item"> <strong> Dirección: </strong> {{center.direccion}} </li>
@@ -27,5 +27,8 @@
   }
   .card-body{
     text-align: center;
+  }
+  .list-group-item{
+    font-size: var(--font-size);
   }
 </style>
