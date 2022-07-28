@@ -1,20 +1,21 @@
 from app.models.user import User
-from flask import jsonify
-from flask import redirect, request, url_for, session, abort
+from flask import request, jsonify
 
 
 def apiCreate():
-	content=request.json
-	if(content["password"] != content["repeatPassword"]):
-		return jsonify(errores={"error_password":"las contraseñas no son iguales"})
-	errores=User.validateForm(content["username"],content["email"], content["password"])
-	if(not errores):
-		return jsonify(errores=errores)
-	user=User.create(content["username"],content["email"], content["password"])
-	if  (user is None):
-		return ({"errores": "no se pudo crear el usuario intente nuevamente el usuario y/o el mail ya se encuentran en la base"})
-	return jsonify(user=User.toString(user))
-
+	try:
+		content=request.json
+		if(content["password"] != content["repeatPassword"]):
+			return jsonify(errores={"errores":"las contraseñas no son iguales"})
+		errores=User.validateForm(content["email"], content["password"])
+		if bool(errores):
+			return jsonify(errores=errores)
+		user=User.create(content["email"], content["password"])
+		if (user is None):
+			return jsonify(errores={"errores": "no se pudo crear el usuario intente nuevamente el usuario y/o el mail ya se encuentran en la base"})
+		return jsonify(user=User.toString(user))
+	except:
+		return jsonify(errores={"errores": "no se pudo crear el usuario intente nuevamente el usuario y/o el mail ya se encuentran en la base"})
 
 def apiLogin():
 	try:
