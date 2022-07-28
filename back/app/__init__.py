@@ -47,4 +47,7 @@ def create_app(environment="development"):
 
     #rutas del clima
 
+    #rutas de Perimetros
+    app.add_url_rule("/api/zonas", "perimetro_get_zonas", perimetro.getZonas)
+    
     return app

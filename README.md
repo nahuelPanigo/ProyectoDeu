@@ -35,4 +35,8 @@ correr el front:
 
 URL para los mapas:
 http://omlp.sedici.unlp.edu.ar/dataset/informe-final
+http://omlp.sedici.unlp.edu.ar/dataset/informe-final/resource/178e69b1-8d50-4250-88a7-203ff0326930?inner_span=True
+https://www.memoria.fahce.unlp.edu.ar/trab_eventos/ev.11310/ev.11310.pdf
 
+PARA CARGAR LOS PUNTOS:
+https://www.keene.edu/campus/maps/tool/
