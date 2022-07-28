@@ -1,5 +1,6 @@
 import datetime
 from app.db_sqlalchemy import db_sqlalchemy as db
+from sqlalchemy.orm import relationship
 from app.models.config import Config
 from datetime import date
 import re
@@ -11,6 +12,7 @@ class User(db.Model):
     email = db.Column(db.String(30), nullable=False, unique=True)
     password = db.Column(db.String(30), nullable=False)
     active = db.Column(db.Integer)
+    alerta = relationship("Alerta")
     update_at = db.Column(db.DateTime,nullable=True)
     created_at = db.Column(db.DateTime,default=datetime.datetime.utcnow) 
 

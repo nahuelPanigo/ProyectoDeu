@@ -10,7 +10,7 @@ class Perimetro(db.Model):
     ordenPunto= db.Column(db.Integer)
     latitud = db.Column(db.Integer)
     longitud = db.Column(db.Integer)
-    zona =db.Column(db.string(30))
+    zona =db.Column(db.String(30))
 
  
     

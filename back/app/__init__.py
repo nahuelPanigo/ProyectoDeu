@@ -7,6 +7,7 @@ from app.resources import user
 from app.resources import perimetro
 from app.resources import config as configuration
 from app.resources import clima
+from app.resources import alerta
 from flask_cors import CORS
 
 
@@ -33,6 +34,7 @@ def create_app(environment="development"):
         from app.models import user as userModel
         from app.models import perimetro as perimetroModel
         from app.models import clima as climaModel
+        from app.models import alerta as alertaModel
 
         db.create_all()
 

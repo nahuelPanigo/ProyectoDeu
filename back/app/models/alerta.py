@@ -1,10 +1,6 @@
-import datetime
 from app.db_sqlalchemy import db_sqlalchemy as db
-from app.models.config import Config
-from sqlalchemy import null, or_, and_
 from datetime import date
-import re
-from sqlalchemy import Table, Column, Integer, ForeignKey
+from sqlalchemy import Column, Integer, ForeignKey
 
 
 class Alerta(db.Model):
