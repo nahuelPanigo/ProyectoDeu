@@ -22,7 +22,7 @@ export default {
     setAction: function(){
       axios.post(urlApi+'/api/user/login',this.getjson()).then((Response)=> {
       if(Response["data"]["token"] != null){
-        createCookie("token",Response["data"]["token"]["username"])
+        createCookie("token",Response["data"]["token"]["email"])
         this.$router.push({ name: 'home' })
       }else{
         console.log(Response)

@@ -7,11 +7,11 @@ insert into clima (milimetrosXDia, milimetrosxSemana, probabilidadDePrecipitacio
 VALUES (0,5,20,0,CAST(N'2012-06-18 10:34:09.000' AS DateTime));
 
 
-insert into users (email, username ,password ,active)
-VALUES ("nahpanigo99@gmail.com","npanigo","contra1",1);
+insert into users (email ,password ,active)
+VALUES ("nahpanigo99@gmail.com","contra1",1);
 
-insert into users (email, username ,password ,active)
-VALUES ("villanuevajimena39@gmail.com","jvillanueva","contra2",1);
+insert into users (email ,password ,active)
+VALUES ("villanuevajimena39@gmail.com","contra2",1);
 
-insert into users (email, username ,password ,active)
-VALUES ("admin@DEU.com","userDeu","contra",1);
+insert into users (email ,password ,active)
+VALUES ("admin@DEU.com","contra",1);
