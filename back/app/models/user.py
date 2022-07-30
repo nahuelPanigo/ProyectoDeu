@@ -4,6 +4,7 @@ from sqlalchemy.orm import relationship
 from app.models.config import Config
 from datetime import date
 import re
+from app.models.alerta import Alerta
 
 
 class User(db.Model):
