@@ -1,3 +1,4 @@
+from venv import create
 from sqlalchemy.orm import relationship
 from app.db_sqlalchemy import db_sqlalchemy as db
 import json
@@ -12,8 +13,15 @@ class Perimetro(db.Model):
     longitud = db.Column(db.Integer)
     zona =db.Column(db.String(30))
 
- 
-    
+    def perimetro(punto,orden,lat,long,zona):
+        p= Perimetro
+        p.latitud=lat
+        p.longitud=long
+        p.zona=zona
+        p.nroPunto=punto
+        p.ordenPunto=orden
+        return p
+
     def getAll():
         perimetros = Perimetro.query.order_by(Perimetro.nroPunto.desc(),Perimetro.nroPunto.desc()).all()
         perimetrosCol= []
@@ -50,3 +58,19 @@ class Perimetro(db.Model):
     
     def getJsonPorZonas():
         json.dump(Perimetro.getJsonPorZonas())
+
+    def create(per):
+        try:
+            db.session.add(per)
+            db.session.commit()
+            return per
+        except:
+            return None
+
+    def checkDbEmpty():
+        return len(Perimetro.query.all()) == 0 
+
+    def chargeDb(perimetros):
+        for per in perimetros:
+            ok=Perimetro.create(per)
+        return ok

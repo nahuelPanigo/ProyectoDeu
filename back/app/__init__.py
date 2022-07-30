@@ -9,6 +9,7 @@ from app.resources import config as configuration
 from app.resources import clima
 from app.resources import alerta
 from flask_cors import CORS
+from app.helpers.chargeDb import readCsv
 
 
 def create_app(environment="development"):
@@ -37,7 +38,8 @@ def create_app(environment="development"):
         from app.models import alerta as alertaModel
 
         db.create_all()
-
+        if perimetroModel.checkDbEmpty():
+            perimetroModel.chargeDb(readCsv())
 
     cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
     #rutas del config
