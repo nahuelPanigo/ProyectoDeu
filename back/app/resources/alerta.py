@@ -1,4 +1,5 @@
 from app.models.alerta import Alerta
+from app.models.user import User
 from flask import request, jsonify
 
 def apiCreate():
@@ -11,11 +12,12 @@ def apiCreate():
     except: 
         return jsonify(errores={"errores": "no se pudo crear la alerta. Por favor intente nuevamente"})
 
-def apiGet(user):
+def apiGet(id):
     try:
-        dict={}
-        alertas = user.getAlarmas(user)
+        dict=[]
+        alertas = Alerta.getAlertas(id)
         for alerta in alertas:
-            dict.push(Alerta.getJsonAlerta(alerta))
+            dict.append(Alerta.getJsonAlert(alerta))
+        return jsonify(dict)
     except:
         return jsonify(errores={"errores": "no se pudo cargar la lista de alertas configuradas. Por favor intente nuevamente"}) 

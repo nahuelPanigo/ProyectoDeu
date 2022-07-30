@@ -25,9 +25,10 @@
 
   import { LMap, LTileLayer, LMarker, LPopup } from 'vue2-leaflet';
   import DesplegableAlerta from '../components/DesplegableAlerta.vue';
-  import Vue from 'vue';
   import axios from "axios";
   import {urlApi} from '../../public/utils/const.js'
+  import { getCookieValue } from '../../public/utils/helpers';
+
 
   export default({
     name:'alertsMap',
@@ -57,23 +58,19 @@
     },
     created(){
       this.chargeLocation();
-      var token=Vue.cookie.get('token')
-      console.log('token:'+token)
     },
     methods: {
       chargeLocation(){
-        var user_id = int(getCookieValue("token"))
-        var alertas = axios.get(urlApi+'/api/alertas/'+user_id,this.getjson()).then((Response)=> {
-          console.log(Response)
+        var user_id = parseInt(getCookieValue("token"))
+        axios.get(urlApi+'/api/alertas/'+user_id).then((Response)=> {
+          console.log('res',Response["data"])
+          var alertas = Response["data"]
+          for (var alerta in alertas){
+            this.alerts.push(alertas[alerta]);
+          }
+
         })
-        for (var i=0 ; i<alertas.length ;i++){
-          var dict = {
-              name: alertas[i].name,
-              latitude: alertas[i].latitude,
-              length: alertas[i].length
-            };
-          this.alerts.push(dict);
-        }
+        
       }
     }
   })
