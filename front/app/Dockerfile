@@ -18,6 +18,7 @@ RUN npm install geojson
 RUN npm install vue-tour
 RUN npm install vue-hotkeys-rt -S
 RUN npm install axios
+RUN npm install point-in-polygon
 
 # start app
 CMD ["npm", "run", "serve"]

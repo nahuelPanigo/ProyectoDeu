@@ -6,6 +6,10 @@ import json
 from sqlalchemy import event, null
 from app.helpers.chargeDb import readCsv
 from sqlalchemy import text
+from shapely.geometry import Point
+from shapely.geometry.polygon import Polygon
+
+
 
 
 
@@ -18,6 +22,29 @@ class Perimetro(db.Model):
     longitud = db.Column(db.String(30))
     zona =db.Column(db.String(30))
 
+    
+    def __init__(self,punto,orden,lat,long,zona):
+        self.latitud=lat
+        self.longitud=long
+        self.zona=zona
+        self.nroPunto=punto
+        self.ordenPunto=orden
+
+
+    def checkZone(latitud,longitud):
+        point = Point(latitud, longitud)
+        perimetros=Perimetro.getAll()
+        for each in perimetros:
+            puntos =[]
+            zona = each[0].zona
+            for per in each:
+                puntos.append((float(per.longitud),float(per.latitud)))
+            polygon = Polygon(puntos)
+            if polygon.contains(point):
+                return zona
+        return "zona-No-Determinada-Peligrosa"
+
+    
     def getAll():
         sql = text('select * from perimetro order by nroPunto, ordenPunto')
         perimetros = db.engine.execute(sql)
@@ -26,15 +53,13 @@ class Perimetro(db.Model):
         for key in perimetros:
             ordenAct = key[1]
             break
-        puntos = []
-        print("segunda key",ordenAct)
+        puntos = []   
         for per in perimetros:
-            print(per[1])
             if(per[1] != ordenAct):
                 ordenAct=per[1]
                 perimetrosCol.append(puntos)
-                puntos.clear()            
-            puntos.append(Perimetro.perimetro(per[1],per[2],per[3],per[4],per[5]))
+                puntos = []           
+            puntos.append(Perimetro(per[1],per[2],per[3],per[4],per[5]))
         return perimetrosCol
         
     
@@ -56,7 +81,6 @@ class Perimetro(db.Model):
     
     def getJsonPorZonas():
         dict =Perimetro.getPorZonas()
-        print(dict)
         return json.dumps(dict)
 
     def createAll(per):
