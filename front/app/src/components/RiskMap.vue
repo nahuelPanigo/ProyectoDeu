@@ -26,6 +26,8 @@
   });
 
   import { LMap, LTileLayer, LMarker, LPopup,LPolygon } from 'vue2-leaflet';
+  import axios from "axios";
+  import {urlApi} from '../../public/utils/const.js'
 
 
 
@@ -60,6 +62,9 @@
     },
     methods: {
       chargeLocation(){
+         axios.get(urlApi+'/api/zonas').then((Response)=> {
+         console.log(Response)
+        })
         var zona1={ 
               coordinates : [[-34.916489, -57.930886], [-34.918979, -57.925972], [-34.919850, -57.930929], [-34.916489, -57.930886]]
               ,color: "#ecd105"

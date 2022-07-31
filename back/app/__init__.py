@@ -1,6 +1,7 @@
 from os import path, environ
 from flask import Flask, render_template, g, request
 from flask_session import Session
+from app.models.perimetro import Perimetro
 from config import config
 from app.db_sqlalchemy import db_sqlalchemy as db
 from app.resources import user
@@ -36,10 +37,9 @@ def create_app(environment="development"):
         from app.models import perimetro as perimetroModel
         from app.models import clima as climaModel
         from app.models import alerta as alertaModel
-
         db.create_all()
-        if perimetroModel.checkDbEmpty():
-            perimetroModel.chargeDb(readCsv())
+
+    
 
     cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
     #rutas del config
