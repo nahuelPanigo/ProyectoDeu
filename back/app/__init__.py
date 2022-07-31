@@ -57,5 +57,6 @@ def create_app(environment="development"):
 
     #rutas de Perimetros
     app.add_url_rule("/api/zonas", "perimetro_get_zonas", perimetro.getZonas)
+    app.add_url_rule("/api/zonas/<punto>", "perimetro_get_zona_punto", perimetro.getZonaPunto, methods=["GET"])
     
     return app

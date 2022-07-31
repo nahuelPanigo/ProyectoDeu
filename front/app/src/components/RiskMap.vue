@@ -63,22 +63,35 @@
     methods: {
       chargeLocation(){
          axios.get(urlApi+'/api/zonas').then((Response)=> {
-         console.log(Response)
-        })
-        var zona1={ 
-              coordinates : [[-34.916489, -57.930886], [-34.918979, -57.925972], [-34.919850, -57.930929], [-34.916489, -57.930886]]
-              ,color: "#ecd105"
-        }
-        var zona2={ 
-              coordinates:[[-34.913076, -57.970701], [-34.917466, -57.968738], [-34.920070, -57.981495], [-34.913076, -57.970701]]
-              ,color:"#ec7105"
+         var zonasAltas=Response["data"]["alta"]
+         var zonasMedias=Response["data"]["media"]
+         //var zonasBajas=Response["data"]["baja"]
+         //var zonasMuyAltas=Response["data"]["muyAlta"]
+         for(var i=0;i<zonasAltas.length;i++){
+              var cord=[]
+              for(var j=0;j<zonasAltas[i].length;j++){
+                  cord.push([parseFloat(zonasAltas[i][j][1]),parseFloat(zonasAltas[i][j][0])]);
               }
-
-        var zona3={ 
-          coordinates:[[-34.937511, -57.960029], [-34.941935, -57.954160], [-34.944334, -57.962954], [-34.937511, -57.960029]]
-          ,color:"#ec052f"
-          }
-        this.zonas.push(zona1);this.zonas.push(zona2); this.zonas.push(zona3); 
+              var zona = {
+                coordinates:cord,
+                color:"#d80c31"
+              }
+              console.log(Response)
+              this.zonas.push(zona);
+         } 
+        for(i=0;i<zonasMedias.length;i++){
+              cord=[]
+              for(j=0;j<zonasMedias[i].length;j++){
+                  cord.push([parseFloat(zonasMedias[i][j][1]),parseFloat(zonasMedias[i][j][0])]);
+              }
+              zona = {
+                coordinates:cord,
+                color:"#cc9c3c"
+              }
+              console.log(Response)
+              this.zonas.push(zona);
+         }
+        });      
       }
     }
   })

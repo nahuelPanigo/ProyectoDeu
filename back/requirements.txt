@@ -16,3 +16,4 @@ PyMySQL==0.9.3
 bs4
 python-dotenv
 flask-cors
+Shapely==1.8.2
