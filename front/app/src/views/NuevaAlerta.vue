@@ -5,18 +5,18 @@
     <h1>Nueva Alerta</h1>
     <h2> Aqui puede configurar una nueva alerta </h2>
   </div>
-<form name="form" id="form">
+<b-form >
     <div class="nombre">
       <label class="form-label" for="name">Nombre de la alerta:</label>
       <input class="form-input" id="name" required placeholder="Nombre">
     </div>
 		<MapaNuevaAlerta 
-    @changeLat="this.form.latitude = $event" 
-    @changeLong="this.form.length = $event">
+    @changeLat="form.latitude = $event" 
+    @changeLong="form.length = $event">
     </MapaNuevaAlerta>
     <!-- <button type="submit" name="Crear" class="guardar">Crear</button> -->
     <a href="#" class="form-submit" v-on:click='setAction'>Crear Alerta</a>
-  </form>
+  </b-form>
   <a href="/listaAlertas" ><button class="volver"> Volver </button></a>
 </div>
 </template>
@@ -46,6 +46,7 @@ import { getCookieValue } from '../../public/utils/helpers';
   },
   methods:{
     setAction: function(){
+      console.log(this.form)
       console.log("jsooon",this.getjson())
       axios.post(urlApi+'/api/alertas/new',this.getjson()).then((Response)=> {
         console.log(Response)

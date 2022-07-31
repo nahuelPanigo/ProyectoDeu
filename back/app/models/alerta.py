@@ -35,7 +35,7 @@ class Alerta(db.Model):
     #busca las alertas del usuario
     def getAlertas(user):
         try:
-            return db.session.query(Alerta).filter(Alerta.user_id == user.id).all()
+            return db.session.query(Alerta).filter(Alerta.user_id == user).all()
         except:
             return None
 
