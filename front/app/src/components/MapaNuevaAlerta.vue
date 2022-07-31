@@ -50,13 +50,11 @@
 		},
 		methods: {
 			agregarMarcador(event){
-				console.log("entraaaaaa")
 				let lat = event.latlng.lat;
 				let long = event.latlng.lng;
 				this.latlng = [lat, long]; 
 				this.$emit('changeLat', lat);
 				this.$emit('changeLong', long);
-				console.log('lat y long', lat, long)
 			},
 			
 		}

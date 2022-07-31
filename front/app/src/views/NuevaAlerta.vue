@@ -46,15 +46,11 @@ import { getCookieValue } from '../../public/utils/helpers';
   },
   methods:{
     setAction: function(){
-      console.log(this.form)
-      console.log("jsooon",this.getjson())
       axios.post(urlApi+'/api/alertas/new',this.getjson()).then((Response)=> {
-        console.log(Response)
       if(Response){
         alert(Response["data"]["alerta"])
         this.$router.push({ name: 'listaAlertas' })
       }else{
-        console.log(Response)
         alert(Response["data"]["errores"]["errores"])
       }
       });

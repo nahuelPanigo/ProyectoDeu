@@ -1,6 +1,6 @@
 from app.db_sqlalchemy import db_sqlalchemy as db
 from sqlalchemy import Column, Integer, ForeignKey
-from flask import jsonify
+from flask import redirect, url_for, flash
 
 
 class Alerta(db.Model):
@@ -44,4 +44,14 @@ class Alerta(db.Model):
         dict["name"]=alerta.name
         dict["latitude"]=alerta.latitude
         dict["length"]=alerta.length
+        dict["id"]=alerta.id
         return dict
+
+    def delete(id):
+        try:
+            alerta = Alerta.query.filter_by(id=id).first()
+            db.session.delete(alerta)
+            db.session.commit()
+            return "ok"
+        except: 
+            return None
