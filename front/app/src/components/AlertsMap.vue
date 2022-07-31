@@ -1,4 +1,4 @@
-  <template>
+<template>
 <div id="MapaAlertas">
   <div class="mapa">
     <LMap :zoom="zoom" :center="center" :minZoom="minZoom" :maxZoom="maxZoom" :maxBounds="maxBounds">
@@ -63,12 +63,11 @@
       chargeLocation(){
         var user_id = parseInt(getCookieValue("token"))
         axios.get(urlApi+'/api/alertas/'+user_id).then((Response)=> {
-          console.log('res',Response["data"])
           var alertas = Response["data"]
           for (var alerta in alertas){
             this.alerts.push(alertas[alerta]);
           }
-
+        
         })
         
       }

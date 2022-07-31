@@ -21,3 +21,10 @@ def apiGet(id):
         return jsonify(dict)
     except:
         return jsonify(errores={"errores": "no se pudo cargar la lista de alertas configuradas. Por favor intente nuevamente"}) 
+
+def delete(idAlerta):
+    try:
+        return Alerta.delete(idAlerta)
+        # return jsonify("se elimino correctamente")
+    except:
+        return jsonify(errores={"errores": "no se pudo eliminar la alerta. Por favor intente nuevamente"})

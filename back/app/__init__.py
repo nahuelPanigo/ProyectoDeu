@@ -52,6 +52,7 @@ def create_app(environment="development"):
     #rutas de alertas
     app.add_url_rule("/api/alertas/new", "alerta_ApiCreate", alerta.apiCreate, methods=["POST"])
     app.add_url_rule("/api/alertas/<id>", "alerta_ApiGet", alerta.apiGet, methods=["GET"])
+    app.add_url_rule("/api/alertas/delete/<idAlerta>", "alerta_delete", alerta.delete, methods=["DELETE"] )
 
     #rutas de Perimetros
     app.add_url_rule("/api/zonas", "perimetro_get_zonas", perimetro.getZonas)
