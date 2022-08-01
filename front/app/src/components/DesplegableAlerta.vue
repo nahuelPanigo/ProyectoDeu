@@ -1,10 +1,11 @@
 <template>
 <div id="DesplegableAlerta" class="card" style="width: 18rem">
   <div class="card-body">
-    <h4>{{alert.name}}</h4>
+    <h3>{{alert.name}}</h3>
+    <h4>ZONA DE RIESGO:<br> {{alert.zone}}</h4>
   </div>
   <ul class="list-group list-group-flush">
-    <button class="second-icon" v-on:click='deleteAlerta'><i class="bi bi-trash3 second-icon"></i> Eliminar</button>
+    <button class="second-icon eliminar" v-on:click='deleteAlerta'><i class="bi bi-trash3 second-icon"></i> Eliminar</button>
   </ul>
 </div>
 </template>
@@ -39,5 +40,8 @@ import {urlApi} from '../../public/utils/const.js';
   }
   .second-icon{
     font-size: var(--font-size)
+  }
+  .eliminar{
+    width: 100%;
   }
 </style>

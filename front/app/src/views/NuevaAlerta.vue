@@ -40,25 +40,31 @@ import { getCookieValue } from '../../public/utils/helpers';
 			form:{
         name: '',
         latitude: '0',
-        length: '0'
+        length: '0',
+        zona: ""
       }
     }
   },
   methods:{
     setAction: function(){
-      axios.post(urlApi+'/api/alertas/new',this.getjson()).then((Response)=> {
-      if(Response){
-        alert(Response["data"]["alerta"])
-        this.$router.push({ name: 'listaAlertas' })
-      }else{
-        alert(Response["data"]["errores"]["errores"])
-      }
-      });
-    },getjson(){
+      var latLong=this.form.latitude.toString()+","+this.form.length.toString()
+      axios.get(urlApi+'/api/zonas/'+latLong).then((Response)=> {
+          var zona=Response["data"]
+          axios.post(urlApi+'/api/alertas/new',this.getjson(zona)).then((Response)=> {
+          console.log(this.getjson())
+          if(Response){
+            this.$router.push({ name: 'listaAlertas' })
+          }else{
+            alert(Response["data"]["errores"]["errores"])
+          }
+          });
+      })
+    },getjson(zona){
       return {
         "name" : document.getElementById("name").value,
         "latitude" : this.form.latitude,
         "longitud" : this.form.length,
+        "zona": zona,
         "user" :  getCookieValue("token")
       }
     }

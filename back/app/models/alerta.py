@@ -44,6 +44,7 @@ class Alerta(db.Model):
         dict["name"]=alerta.name
         dict["latitude"]=alerta.latitude
         dict["length"]=alerta.length
+        dict["zone"]=alerta.zone
         dict["id"]=alerta.id
         return dict
 

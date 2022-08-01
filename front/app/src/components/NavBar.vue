@@ -34,7 +34,6 @@ export default {
       fontSize: "chico"
     }
   },mounted(){
-    console.log(getCookie("token"))
     if(getCookie("token")){
       this.sesion=true
     }else{
