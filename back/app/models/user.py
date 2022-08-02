@@ -71,6 +71,14 @@ class User(db.Model):
         if Validator.password(password) is not None:
             errores["errores"] = Validator.password(password)
         return errores    
+
+    def getEmailZona(alertaId):
+        try:
+            user = User.query.filter_by(alerta=alertaId)
+            return user.email
+        except:
+            return None
+
 min = 5
 max = 30
 class Validator():    

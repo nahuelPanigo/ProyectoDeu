@@ -1,6 +1,7 @@
 from sqlalchemy.orm import relationship
 from app.db_sqlalchemy import db_sqlalchemy as db
 from datetime import datetime
+from back.app.models.perimetro import Perimetro
 from flask import jsonify
 
 

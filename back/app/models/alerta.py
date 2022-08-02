@@ -55,3 +55,9 @@ class Alerta(db.Model):
             return "ok"
         except: 
             return None
+
+    def getAlertasMaximas():
+        try:
+            return Alerta.query.filter_by(zona="Muy alta").all()
+        except:
+            return None

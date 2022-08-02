@@ -10,9 +10,9 @@ from app.resources import perimetro
 from app.resources import config as configuration
 from app.resources import clima
 from app.resources import alerta
+from app.resources import worker
 from flask_cors import CORS
 from app.helpers.chargeDb import readCsv
-from flask_mail import Mail, Message
 
 
 def create_app(environment="development"):
@@ -62,25 +62,6 @@ def create_app(environment="development"):
     app.add_url_rule("/api/zonas", "perimetro_get_zonas", perimetro.getZonas)
     app.add_url_rule("/api/zonas/<punto>", "perimetro_get_zona_punto", perimetro.getZonaPunto, methods=["GET"])
     
-    #configuration mail
-    mail_settings = {
-    "MAIL_SERVER": 'smtp.gmail.com',
-    "MAIL_PORT": 465,
-    "MAIL_USE_TLS": False,
-    "MAIL_USE_SSL": True,
-    # "MAIL_USERNAME": os.environ['EMAIL_USER'],
-    # "MAIL_PASSWORD": os.environ['EMAIL_PASSWORD']
-    "MAIL_USERNAME": 'alertainundaciones.laplata@gmail.com',
-    "MAIL_PASSWORD": 'mhbqtbguqgduzrhi'
-    }
-
-    app.config.update(mail_settings)
-    mail = Mail(app)
-    with app.app_context():
-        msg = Message(subject="Hello",
-                      sender="alertainundaciones.laplata@gmail.com",
-                      recipients=["villanuevajimena39@gmail.com"], # replace with your email for testing
-                      body="This is a test email I sent with Gmail and Python!")
-        mail.send(msg)
-    
+    #rutas worker
+    app.add_url_rule("/api/worker", "worker_actualizar_clima", worker.actualizarClima)
     return app
