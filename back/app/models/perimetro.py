@@ -42,7 +42,7 @@ class Perimetro(db.Model):
             polygon = Polygon(puntos)
             if polygon.contains(point):
                 return zona
-        return "zona-No-Determinada-Peligrosa"
+        return "zona-no-determinada-peligrosa"
 
     
     def getAll():
