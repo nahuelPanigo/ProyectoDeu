@@ -30,7 +30,15 @@ correr el front:
 	ejecutamos el container:
 		docker run --network=my-net -v ${PWD}:/app -v /app/node_modules -p 8080:8080 -e myhost=backend my-app:dev
 
+correr worker:
 
+	Descargamos la imagen :
+		nos movemos a la carpeta worker
+		ejecutamos : 
+			docker build -t worker:dev .
+
+		ejecutamos el container: 
+			docker run --network=my-net -e myhost=backend  worker:dev 
 
 
 URL para los mapas:

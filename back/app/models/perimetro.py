@@ -10,9 +10,6 @@ from shapely.geometry import Point
 from shapely.geometry.polygon import Polygon
 
 
-
-
-
 class Perimetro(db.Model):
     __tablename__ = 'perimetro'
     id = db.Column(db.Integer, primary_key=True)

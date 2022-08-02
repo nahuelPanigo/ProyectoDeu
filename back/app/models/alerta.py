@@ -1,6 +1,9 @@
 from app.db_sqlalchemy import db_sqlalchemy as db
 from sqlalchemy import Column, Integer, ForeignKey
+from app.models.user import User
 from flask import redirect, url_for, flash
+from app.models.zona import Zona
+from sqlalchemy import text
 
 
 class Alerta(db.Model):
@@ -56,3 +59,31 @@ class Alerta(db.Model):
             return "ok"
         except: 
             return None
+
+    def getAlertasMaximas():
+        try:
+            return Alerta.query.filter_by(zona="Muy alta").all()
+        except:
+            return None
+
+    def getAllByZone(zone):
+        sql = text('select name, zone, email from alerts inner join users on users.id = alerts.user_id where zone = :var ')
+        return db.engine.execute(sql, var=zone)
+
+    def enviarAlertas():
+        zonasCriticas = Zona.zonasCriticas()
+        if (len(zonasCriticas)!=0):
+            colalertas = []
+            for zona in zonasCriticas:
+                colalertas.append(Alerta.getAllByZone(zona))
+            filtro = {}
+            for col in colalertas :
+                print('col',len(col))
+                for alerta in col:
+                    print('alertas: ', alerta[0])
+                    if not alerta[7] in filtro:
+                        filtro[alerta[7]] = []
+                    filtro[alerta[7]].append((alerta[1],alerta[4]))
+            return filtro
+        else:
+            return False

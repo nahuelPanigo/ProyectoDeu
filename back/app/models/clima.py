@@ -1,7 +1,7 @@
 from urllib import request
 from sqlalchemy.orm import relationship
 from app.db_sqlalchemy import db_sqlalchemy as db
-from datetime import datetime
+import datetime
 from flask import jsonify
 from bs4 import BeautifulSoup
 import requests
@@ -24,7 +24,7 @@ class Clima(db.Model):
         return Clima.query.first()
         
 
-    def updateClima(milimetroDia,ProbabilidadPrex,Alertas):
+    def updateClima1(milimetroDia,ProbabilidadPrex,Alertas):
         clima=Clima.getClima()
         clima.milimetrosxSemana = Clima.milimetrosxSemana-Clima.milimetrosxDia+milimetroDia
         clima.milimetrosxDia = milimetroDia
@@ -33,14 +33,14 @@ class Clima(db.Model):
         clima.ultimaActualizacionHora = datetime.datetime.now()
         db.session.commit()
 
-    def updateClima(milimetroDia):
+    def updateClima2(milimetroDia):
         clima=Clima.getClima()
         clima.milimetrosxSemana = Clima.milimetrosxSemana-Clima.milimetrosxDia+milimetroDia
         clima.milimetrosxDia = milimetroDia
         db.session.commit()
 
 
-    def updateClima(milimetroDia,MilimetroSemana,ProbabilidadPrex,Alertas):
+    def updateClima3(milimetroDia,MilimetroSemana,ProbabilidadPrex,Alertas):
         clima=Clima.getClima()
         clima.milimetrosxDia = milimetroDia
         clima.milimetrosxSemana = MilimetroSemana
@@ -83,20 +83,20 @@ class Clima(db.Model):
         option=Clima.tipoActualizacion()
         DatosDiarios=int(float(Clima.getPrecipitacionesAcumuladasDiarias()))
         if(option==2):
-            Clima.updateClima(DatosDiarios)
+            Clima.updateClima2(DatosDiarios)
         else:
             Probabilidad,alertas = Clima.getProbabilitiesAndAlerts()
             if(option==0):
-                Clima.updateClima(DatosDiarios,0,Probabilidad,alertas)
+                Clima.updateClima3(DatosDiarios,0,Probabilidad,alertas)
             else:
-                Clima.updateClima(DatosDiarios,Probabilidad,alertas)
+                Clima.updateClima1(DatosDiarios,Probabilidad,alertas)
 
 
     def getPrecipitacionesAcumuladasDiarias():
         html_doc = requests.get('https://meteo.fcaglp.unlp.edu.ar/davis/campo/campo.htm',headers={"User-Agent":"Mozilla/5.0"}).text
         soup = BeautifulSoup(html_doc, 'html.parser')
         tags=soup.find_all("div", class_="tabla")[5].find_all("td")
-        return tags[1].text.split("\xa0")
+        return tags[1].text.split("\xa0")[0]
 
 
     def getProbabilitiesAndAlerts():

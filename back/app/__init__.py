@@ -2,17 +2,15 @@ from os import path, environ
 import os
 from flask import Flask, render_template, g, request
 from flask_session import Session
-from app.models.perimetro import Perimetro
 from config import config
 from app.db_sqlalchemy import db_sqlalchemy as db
 from app.resources import user
 from app.resources import perimetro
 from app.resources import config as configuration
-from app.resources import clima
 from app.resources import alerta
+from app.resources import worker
 from flask_cors import CORS
 from app.helpers.chargeDb import readCsv
-from flask_mail import Mail, Message
 
 
 def create_app(environment="development"):
@@ -39,6 +37,7 @@ def create_app(environment="development"):
         from app.models import perimetro as perimetroModel
         from app.models import clima as climaModel
         from app.models import alerta as alertaModel
+        from app.models import zona as zonaModel
         db.create_all()
 
     
@@ -64,4 +63,8 @@ def create_app(environment="development"):
     app.add_url_rule("/api/zonas", "perimetro_get_zonas", perimetro.getZonas)
     app.add_url_rule("/api/zonas/<punto>", "perimetro_get_zona_punto", perimetro.getZonaPunto, methods=["GET"])
     
+
+    #rutas worker
+    app.add_url_rule("/api/worker", "worker_actualizar_clima", worker.actualizarClima)
+
     return app
