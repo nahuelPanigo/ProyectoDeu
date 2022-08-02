@@ -2,13 +2,11 @@ from os import path, environ
 import os
 from flask import Flask, render_template, g, request
 from flask_session import Session
-from app.models.perimetro import Perimetro
 from config import config
 from app.db_sqlalchemy import db_sqlalchemy as db
 from app.resources import user
 from app.resources import perimetro
 from app.resources import config as configuration
-from app.resources import clima
 from app.resources import alerta
 from app.resources import worker
 from flask_cors import CORS
@@ -39,6 +37,7 @@ def create_app(environment="development"):
         from app.models import perimetro as perimetroModel
         from app.models import clima as climaModel
         from app.models import alerta as alertaModel
+        from app.models import zona as zonaModel
         db.create_all()
 
     

@@ -4,7 +4,6 @@ from os import environ
 
 def job():
     myhost = environ.get("myhost", "localhost")
-    print("myhost", myhost)
     r=""
     try:
         r = requests.get('http://'+myhost+':5000/api/worker')

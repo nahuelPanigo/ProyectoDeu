@@ -6,7 +6,6 @@ import json
 from sqlalchemy import event, null
 from app.helpers.chargeDb import readCsv
 from sqlalchemy import text
-from app.models.user import User
 from shapely.geometry import Point
 from shapely.geometry.polygon import Polygon
 
@@ -109,23 +108,6 @@ class Perimetro(db.Model):
 
     def toString(per):
         return (per.latitud,per.longitud)
-
-    def zonasCriticas(milimetrosAcumulados):
-        zonas = Perimetro.getPorZonas()
-        zonasCriticas = []
-        for zona in zonas: 
-            if (milimetrosAcumulados >= 150):
-                #alertar todas las zonas
-            # if (milimetrosAcumulados >= 100):
-            #     #alertar Zonas MuyAltas, Altas y Medias
-            # if (milimetrosAcumulados >= 80):
-            #     #alertar Zonas Altas y MuyAltas
-            #     zonaCritica={
-            #         "email": User.getEmailZona(zona.id),
-            #         "name": zona.name 
-            #     }
-                zonasCriticas.append(zona.zona)
-        return zonasCriticas
 
 
 @event.listens_for(Perimetro.__table__, 'after_create')
