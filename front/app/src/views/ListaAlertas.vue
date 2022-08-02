@@ -2,7 +2,7 @@
  <div class="alertas">
    <h1> Mis Alertas programadas </h1>
    <h2> En este mapa se visualizan todas las alertas configuradas por el usuario. </h2>
-   <a href="/nuevaAlerta"  id="v-step-5"><button> Crear nueva Alerta </button> </a>
+   <button id="v-step-5" class="nueva-alerta" v-on:click='nuevaAlerta'> Crear nueva Alerta </button>
     <AlertsMap></AlertsMap>
     <v-tour name="alertas" :steps="steps" :options="myOptions"></v-tour>
   </div>
@@ -37,6 +37,15 @@ export default {
           }
           ]
     }
+  },
+  methods:{
+    nuevaAlerta: function(){
+      this.$router.push({ name: 'nuevaAlerta' })
+    }
   }
 }
 </script>
+
+<style >
+
+</style>>

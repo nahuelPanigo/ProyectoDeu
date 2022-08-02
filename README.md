@@ -18,7 +18,7 @@ correr el backend:
 		docker build --tag python-docker:dev .
 
 	ejecutamos el container:
-		docker run --name backend --network my-net  -v ${PWD}:/app/app -e DB_HOST=servidor_mysql -e DB_USER=usuarioDeu -e DB_PASS=passDeu -e DB_NAME=deu -p 5000:5000 python-docker:dev 
+		docker run --name backend --network my-net  -v ${PWD}:/app -e DB_HOST=servidor_mysql -e DB_USER=usuarioDeu -e DB_PASS=passDeu -e DB_NAME=deu -p 5000:5000 python-docker:dev 
 
 correr el front:
 
@@ -48,3 +48,10 @@ https://www.memoria.fahce.unlp.edu.ar/trab_eventos/ev.11310/ev.11310.pdf
 
 PARA CARGAR LOS PUNTOS:
 https://www.keene.edu/campus/maps/tool/
+
+webscrapp:
+https://meteo.fcaglp.unlp.edu.ar/
+
+apiClima:
+weatherbit.io/account/dashboard
+https://weatherstack.com/quickstart

@@ -6,7 +6,7 @@
       <input class="form-input" type="email" id="email" placeholder="Email">
       <label class="form-label" for="password">Ingrese una contraseña</label>
       <input class="form-input" type="password" id="password" placeholder="contraseña">
-      <label class="form-label" for="password">Repita la contraseña</label>
+      <label class="form-label" for="repeatPassword">Repita la contraseña</label>
       <input class="form-input" type="password" id="repeatPassword" placeholder="contraseña">
       <a href="#" class="form-submit" v-on:click='setAction'>Registrarse</a>
       <!-- <input class="form-submit" type="submit" value="Registrarse" v-on:click='setAction'> -->

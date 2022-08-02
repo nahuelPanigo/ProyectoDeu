@@ -44,3 +44,20 @@
   .box img {
     border: 2px solid var(--primary-color);
   }
+  button{
+    background: var(--button-color);
+    color: var(--primary-color)
+  }
+  span{
+    color: black
+  }
+  /* .leaflet-popup-content-wrapper{
+    background: var(--back-color);
+    color: var(--primary-color)
+  }
+  .leaflet-control-zoom-in {
+    color: black
+  }
+  .leaflet-control-zoom-out{
+    color: black;
+  } */

@@ -3,7 +3,6 @@ function getCookie(name){
   for(var i=0; i < col.length; i++) {
     var res=col[i].split('=')
     if(res[0] == name){
-      console.log(res[0])
       return true
     }
   }

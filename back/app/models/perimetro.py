@@ -83,11 +83,10 @@ class Perimetro(db.Model):
 
     def createAll(per):
         try:
-            db.session.add(Perimetro(nroPunto=per.nroPunto,ordenPunto=per.ordenPunto,latitud=per.latitud,longitud=per.longitud,zona=per.zona))
+            db.session.add(Perimetro(per.nroPunto,per.ordenPunto,per.latitud,per.longitud,per.zona))
             return per
         except:
             return None
-
 
 
     def checkDbEmpty():
