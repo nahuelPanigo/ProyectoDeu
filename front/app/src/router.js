@@ -7,6 +7,7 @@ import RiskMapView from './views/MapaZonaRiesgos.vue'
 import ListaAlertas from './views/ListaAlertas.vue'
 import NuevaAlerta from './views/NuevaAlerta.vue'
 import RegistrarseView from './views/SignUp.vue'
+import masInformacion from './views/MasInformacion.vue'
 
 
 Vue.use(Router)
@@ -17,8 +18,8 @@ const routes = [
   { path: '/mapaEvacuacion', name: 'mapaEvacuacion', component: MapaEvacuacion },
   { path: '/mapaZonasRiesgo', name: 'riskMapView', component: RiskMapView },
   { path: '/listaAlertas', name: 'listaAlertas', component: ListaAlertas },
-  { path: '/nuevaAlerta', name: 'nuevaAlerta', component: NuevaAlerta }
-
+  { path: '/nuevaAlerta', name: 'nuevaAlerta', component: NuevaAlerta },
+  { path: '/masInformacion', name: 'masInformacion', component: masInformacion }
 ]
 
 const router = new Router({

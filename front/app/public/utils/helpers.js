@@ -69,5 +69,11 @@ function setFontSize(size){
   }
 }
 
+function onclickSetCookie(element,cookie,value){
+  console.log(element)
+  element.addEventListener('click', function handleClick() {
+    createCookie(cookie,value)
+  });
+}
 
-export{getCookie,createCookie,setProperty,setVal,getCookieValue, changeSize, setFontSize,deleteCookie}
+export{getCookie,createCookie,setProperty,setVal,getCookieValue, changeSize, setFontSize,deleteCookie,onclickSetCookie}

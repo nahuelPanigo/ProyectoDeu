@@ -3,8 +3,8 @@ VALUES ("Alertas las plata", "el sitio web trata de alertar a los ciudadanos ant
 
 
 
-insert into clima (milimetrosXDia, milimetrosxSemana, probabilidadDePrecipitaciones, estimacionDePrecipitaciones,ultimaActualizacion)
-VALUES (0,5,20,0,CAST(N'2012-06-18 10:34:09.000' AS DateTime));
+insert into clima (milimetrosXDia, milimetrosxSemana, probabilidadDePrecipitaciones, proximasAlertas,ultimaActualizacionHora,ultimaActualizacionSemana)
+VALUES (0,5,20,"no hay alertas",CAST(N'2012-06-18 10:34:09.000' AS DateTime),CAST(N'2012-06-18 10:34:09.000' AS DateTime));
 
 
 insert into users (email ,password ,active)
@@ -15,3 +15,4 @@ VALUES ("villanuevajimena39@gmail.com","contra2",1);
 
 insert into users (email ,password ,active)
 VALUES ("admin@DEU.com","contra",1);
+

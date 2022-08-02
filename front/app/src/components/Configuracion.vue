@@ -5,6 +5,7 @@
     <h1>Configuraciones del sitio</h1>
     <h2>Elegir tema del sitio:</h2>
     <fieldset>
+    <legend>temas</legend>
     <div class="form-check form-check-inline">
         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineClaro" value="modo claro">
         <label class="form-check-label" for="inlineClaro">modo claro</label>

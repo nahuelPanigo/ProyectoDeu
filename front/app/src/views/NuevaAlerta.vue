@@ -15,7 +15,7 @@
     @changeLong="form.length = $event">
     </MapaNuevaAlerta>
     <!-- <button type="submit" name="Crear" class="guardar">Crear</button> -->
-    <a href="#" class="form-submit" v-on:click='setAction'>Crear Alerta</a>
+    <button class="volver" v-on:click='setAction'>Crear Alerta</button>
   </b-form>
   <a href="/listaAlertas" ><button class="volver"> Volver </button></a>
 </div>

@@ -1,4 +1,4 @@
-    <template>
+<template>
     <div class="homeView">
     <div class=" text-center cuadro">
       <h1>Alertas inundaciones</h1>

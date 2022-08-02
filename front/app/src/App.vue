@@ -5,7 +5,7 @@
      <i class="bi bi-gear-fill" id ="config-icon">Configuracion</i>
     </button>
     <ConfiguracionPopUp/>
-    <v-tour name="App" :steps="steps" :options="MyOptions"></v-tour>
+    <v-tour id="tourHome" name="App" :steps="steps" :options="MyOptions"></v-tour>
     <router-view></router-view>
   </div>
 </template>
@@ -13,7 +13,7 @@
 <script>
 import NavBar from './components/NavBar.vue'
 import ConfiguracionPopUp from './components/Configuracion.vue'
-import {getCookie,createCookie,getCookieValue,setVal,setFontSize} from '../public/utils/helpers.js'
+import {getCookie,createCookie,getCookieValue,setVal,setFontSize,onclickSetCookie} from '../public/utils/helpers.js'
 
 
 export default {
@@ -59,12 +59,18 @@ export default {
             target: '.v-step-4',
             content: 'En esta seccion se podran administrar alertas en distintos puntos de interes para advertir sobre posibles inundaciones ',
           }
-      this.steps.push(dict)
+          this.steps.push(dict)
     }
-  },mounted: function () {
-    this.$tours['App'].start()
+  },mounted() {
+    if(!getCookie("saltarTourHome")){
+      this.$tours['App'].start()
+    }
     setVal(getCookieValue("tema"))
     setFontSize(getCookieValue("size"))
+      document.getElementById("tourHome").getElementsByClassName("v-step__button v-step__button-skip")[0].addEventListener('click', function handleClick() {
+        createCookie("saltarTourHome","true")
+      });
+      onclickSetCookie(document.getElementById("tourHome").getElementsByClassName("v-step__button v-step__button-stop")[0],"saltarTourHome","true")
     },
     methods:{
       configurationPop:function(){

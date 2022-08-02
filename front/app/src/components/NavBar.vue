@@ -10,7 +10,7 @@
             <li><a id="mapaZonaRiesgo" href="/mapaZonasRiesgo">Zonas de riesgo</a></li>
           </ul>
           <li><a v-if="sesion === true" href="/listaAlertas" id="misAlertas"  class="v-step-4" onclick="misAlertas">Mis alertas</a></li>
-          <li><a href="#" id="masInformacion" class="v-step-3" onclick="masInformacion">Mas informacion</a></li>
+          <li><a href="/masInformacion" id="masInformacion" class="v-step-3" onclick="masInformacion">Mas informacion</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a id="iniciarSesion" v-if="sesion === false" href="/iniciarSesion"><span class="glyphicon glyphicon-user"></span> Iniciar Sesion</a></li>
