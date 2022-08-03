@@ -9,6 +9,7 @@ from app.resources import perimetro
 from app.resources import config as configuration
 from app.resources import alerta
 from app.resources import worker
+from app.resources import clima
 from flask_cors import CORS
 from app.helpers.chargeDb import readCsv
 
