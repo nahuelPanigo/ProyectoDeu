@@ -23,6 +23,6 @@ def enviarMail():
             with app.app_context():
                 msg = Message(subject="Notificacion de Alerta",
                     sender="alertainundaciones.laplata@gmail.com",
-                    recipients=[usuario[0]], # replace with your email for testing
-                    body="Alerta por fuertes lluvias en `{usuario[1]}`. Riesgo de la zona: `{usuario[2]}`")
+                    recipients=[usuario[0]],
+                    body="Alerta por fuertes lluvias en " + usuario[2] +". Riesgo de la zona: " +usuario[1])
                 mail.send(msg)

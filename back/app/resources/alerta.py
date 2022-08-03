@@ -5,9 +5,7 @@ from flask import request, jsonify
 def apiCreate():
     try:
         content=request.json
-        print(content["zona"])
         alerta=Alerta.create(content["name"], content["latitude"], content["longitud"],content["zona"], int(content["user"]))
-        print(alerta.zone)
         if (alerta is None):
             return jsonify(errores={"errores": "Por favor intente nuevamente"})
         return jsonify(alerta=Alerta.toString(alerta))
