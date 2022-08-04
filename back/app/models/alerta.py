@@ -67,23 +67,16 @@ class Alerta(db.Model):
             return None
 
     def getAllByZone(zone):
-        sql = text('select name, zone, email from alerts inner join users on users.id = alerts.user_id where zone = :var ')
-        return db.engine.execute(sql, var=zone)
+        return Alerta.query.join(User, Alerta.user_id == User.id).filter(Alerta.zone==zone).order_by(User.id).all()
 
     def enviarAlertas():
         zonasCriticas = Zona.zonasCriticas()
         if (len(zonasCriticas)!=0):
-            colalertas = []
+            alertas = []
             for zona in zonasCriticas:
-                colalertas.append(Alerta.getAllByZone(zona))
-            filtro = {}
-            for col in colalertas :
-                print('col',len(col))
-                for alerta in col:
-                    print('alertas: ', alerta[0])
-                    if not alerta[7] in filtro:
-                        filtro[alerta[7]] = []
-                    filtro[alerta[7]].append((alerta[1],alerta[4]))
-            return filtro
+                for alerta in Alerta.getAllByZone(zona):
+                    user = User.query.get(alerta.user_id)
+                    alertas.append([user.email, alerta.zone, alerta.name])
+            return alertas
         else:
             return False
