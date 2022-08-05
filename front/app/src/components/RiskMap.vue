@@ -3,12 +3,7 @@
   <div class="mapa">
     <LMap :zoom="zoom" :center="center" :minZoom="minZoom" :maxZoom="maxZoom" :maxBounds="maxBounds">
       <LTileLayer :url="url"></LTileLayer>
-      <l-marker v-for="(center,index) in centers" :key="index" :lat-lng="[center.latitude,center.length]">
-        <LPopup>
-          <DesplegableCenter :center="center"> </DesplegableCenter>
-        </LPopup>
-      </l-marker>
-               <l-polygon v-for="(zona,index) in zonas" :key="index" :color="zona.color" :fillOpacity=".65" :fillColor="zona.color" :lat-lngs="zona.coordinates">
+      <l-polygon v-for="(zona,index) in zonas" :key="index" :color="zona.color" :fillOpacity=".65" :fillColor="zona.color" :lat-lngs="zona.coordinates">
       </l-polygon>
     </LMap>
   </div>
@@ -25,7 +20,7 @@
     shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
   });
 
-  import { LMap, LTileLayer, LMarker, LPopup,LPolygon } from 'vue2-leaflet';
+  import { LMap, LTileLayer,LPolygon } from 'vue2-leaflet';
   import axios from "axios";
   import {urlApi} from '../../public/utils/const.js'
 
@@ -36,8 +31,6 @@
     components: {
       LMap,
       LTileLayer,
-      LMarker,
-      LPopup,
       LPolygon
     },
     data() {
@@ -65,35 +58,27 @@
          axios.get(urlApi+'/api/zonas').then((Response)=> {
          var zonasAltas=Response["data"]["alta"]
          var zonasMedias=Response["data"]["media"]
-         //var zonasBajas=Response["data"]["baja"]
-         //var zonasMuyAltas=Response["data"]["muyAlta"]
-         for(var i=0;i<zonasAltas.length;i++){
+         var zonasBajas=Response["data"]["baja"]
+         var zonasMuyAltas=Response["data"]["muyAlta"]
+          this.makeZona(zonasBajas,"#d5f206") 
+          this.makeZona(zonasMedias,"#cc9c3c")
+          this.makeZona(zonasAltas,"#d80c31")
+          this.makeZona(zonasMuyAltas,"#43020fe6")
+         });      
+      },makeZona(col,color){
+        for(var i=0;i<col.length;i++){
               var cord=[]
-              for(var j=0;j<zonasAltas[i].length;j++){
-                  cord.push([parseFloat(zonasAltas[i][j][1]),parseFloat(zonasAltas[i][j][0])]);
+              for(var j=0;j<col[i].length;j++){
+                  cord.push([parseFloat(col[i][j][1]),parseFloat(col[i][j][0])]);
               }
               var zona = {
                 coordinates:cord,
-                color:"#d80c31"
+                color:color
               }
-              console.log(Response)
-              this.zonas.push(zona);
-         } 
-        for(i=0;i<zonasMedias.length;i++){
-              cord=[]
-              for(j=0;j<zonasMedias[i].length;j++){
-                  cord.push([parseFloat(zonasMedias[i][j][1]),parseFloat(zonasMedias[i][j][0])]);
-              }
-              zona = {
-                coordinates:cord,
-                color:"#cc9c3c"
-              }
-              console.log(Response)
               this.zonas.push(zona);
          }
-        });      
+        }
       }
-    }
   })
 </script>
 <style>
