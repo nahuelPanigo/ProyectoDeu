@@ -1,4 +1,5 @@
 import imp
+import re
 from venv import create
 from sqlalchemy.orm import relationship
 from app.db_sqlalchemy import db_sqlalchemy as db
@@ -51,12 +52,15 @@ class Perimetro(db.Model):
             ordenAct = key[1]
             break
         puntos = []   
+        i=0
         for per in perimetros:
+            i=i+1
             if(per[1] != ordenAct):
                 ordenAct=per[1]
                 perimetrosCol.append(puntos)
                 puntos = []           
             puntos.append(Perimetro(per[1],per[2],per[3],per[4],per[5]))
+        perimetrosCol.append(puntos)
         return perimetrosCol
         
     
