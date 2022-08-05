@@ -2,7 +2,7 @@
   <div class="Centros De Evacuacion">
     <h1>Mapa Zonas de riesgo</h1>
     <h2> En este mapa se visualizan las distintas zonas de la ciudad, distinguiendose los niveles de riesgo.</h2>
-    <button  class="btn" data-toggle="modal" data-target="#myModalInfo"> 
+    <button  class="btn" data-toggle="modal" data-target="#myModalInfo" style="top:28%"> 
      <i class="bi bi-gear-fill" id ="config-icon">Info Zonas</i>   
     </button>
     <InfoPopUp/>

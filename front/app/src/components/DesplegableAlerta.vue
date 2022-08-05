@@ -3,6 +3,7 @@
   <div class="card-body">
     <h3>{{alert.name}}</h3>
     <h4>ZONA DE RIESGO:<br> {{alert.zone}}</h4>
+    <a href="/mapaZonasRiesgo" class="masInfo"> <i class="bi bi-info-circle info"> Ver zona en el mapa de riesgos</i></a>
   </div>
   <ul class="list-group list-group-flush">
     <button class="second-icon eliminar" v-on:click='deleteAlerta'><i class="bi bi-trash3 second-icon"></i> Eliminar</button>
@@ -44,4 +45,8 @@ import {urlApi} from '../../public/utils/const.js';
   .eliminar{
     width: 100%;
   }
+  .info{
+    font-size: 20px;
+  }
+  
 </style>

@@ -12,7 +12,7 @@ def job():
 
 
 while True:
-    time.sleep(10)
+    time.sleep(600)
     job()
 
 

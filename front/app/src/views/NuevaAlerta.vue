@@ -3,19 +3,23 @@
   <a href="/listaAlertas">Mis Alertas</a> > <a class="paginaActual"> Nueva Alerta</a> 
   <div>
     <h1>Nueva Alerta</h1>
-    <h2> Aqui puede configurar una nueva alerta </h2>
+    <h3> Aqui puede configurar una nueva alerta. </h3>
+    <h4> Se le enviara un mail en el caso de que se acumule mucha agua en la zona, advirtiendo ante posibles inundaciones </h4>
   </div>
 <b-form >
     <div class="nombre">
-      <label class="form-label" for="name">Nombre de la alerta:</label>
+      <label class="form-label" for="name">Ingrese el nombre de la alerta:</label>
       <input class="form-input" id="name" required placeholder="Nombre">
+    </div>
+    <div style="text-align: left;">
+    <label for="mapa"> Seleccione la ubicacion de la alerta en el mapa:</label>
     </div>
 		<MapaNuevaAlerta 
     @changeLat="form.latitude = $event" 
     @changeLong="form.length = $event">
     </MapaNuevaAlerta>
     <!-- <button type="submit" name="Crear" class="guardar">Crear</button> -->
-    <button class="volver" v-on:click='setAction'>Crear Alerta</button>
+    <button style="margin: 0.5%;" class="volver" v-on:click='setAction'>Crear Alerta</button>
   </b-form>
   <a href="/listaAlertas" ><button class="volver"> Volver </button></a>
 </div>

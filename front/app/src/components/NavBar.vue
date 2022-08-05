@@ -8,7 +8,8 @@
             <ul class="dropdown-menu">
             <li><a id="mapaEvacuacion" href="/mapaEvacuacion">Centros de evacuacion</a></li>
             <li><a id="mapaZonaRiesgo" href="/mapaZonasRiesgo">Zonas de riesgo</a></li>
-          </ul>
+            </ul>
+            </li>
           <li><a v-if="sesion === true" href="/listaAlertas" id="misAlertas"  class="v-step-4" onclick="misAlertas">Mis alertas</a></li>
           <li><a href="/masInformacion" id="masInformacion" class="v-step-3" onclick="masInformacion">Mas informacion</a></li>
         </ul>

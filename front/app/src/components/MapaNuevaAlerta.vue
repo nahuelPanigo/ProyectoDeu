@@ -65,7 +65,6 @@
   border-style: groove;
   margin-left: 1%;
   margin-right: 1%;
-  margin-top: 2%;
   border-color: #c1d8d8;
   border-radius: 5px;
 }
