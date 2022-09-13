@@ -1,3 +1,5 @@
+Ejecutar la aplicacion:
+
 crear el network
 
 docker network create  my-net
@@ -42,8 +44,20 @@ ejecutamos el container:
 				docker run --network=my-net -e myhost=backend  worker:dev 
 
 
+
+ Configuraciones extas:
+  en el archivo sendEmail.py ubicado en back/app/helpers se encuentra la configuracion para la cuenta de mail a configurar.
+  dentro del archivo esta el diccionario mail_settings  al cual se le tienen que configurar las entradas MAIL_USERNAME y MAIL_PASSWORD con las respectivas a utilizar en el proyecto(cabe aclarar que mail_password no es la contrasena en si de la cuenta sino una generada desde la cuenta de google para poder enviar por la aplicacion) se puede realizar siguiendo los pasos como mejor opcion habilitar el MFA https://support.google.com/a/answer/6260879?hl=en#zippy=%2Cif-you-allow-sign-ins-from-less-secure-apps%2Cuse-alternatives-to-less-secure-apps
+
+  
+  Por otro lado se tiene que configurar la api_key de la api del clima, la cual se encuentra en el archivo back/app/models/clima.py y el metodo getProbabilitiesAndAlerts se debe modificar la variable: access_key para esta variable se debe hacer una en la app https://weatherstack.com/quickstart solo se necesita registrarse y es de uso gratuito.
+
+
+
+Otra info relevante del proyecto:
+
+
 URL para los mapas:
-http://omlp.sedici.unlp.edu.ar/dataset/informe-final
 http://omlp.sedici.unlp.edu.ar/dataset/informe-final/resource/178e69b1-8d50-4250-88a7-203ff0326930?inner_span=True
 https://www.memoria.fahce.unlp.edu.ar/trab_eventos/ev.11310/ev.11310.pdf
 
@@ -54,5 +68,4 @@ webscrapp:
 https://meteo.fcaglp.unlp.edu.ar/
 
 apiClima:
-weatherbit.io/account/dashboard
 https://weatherstack.com/quickstart

@@ -11,8 +11,8 @@ mail_settings = {
     "MAIL_PORT": 465,
     "MAIL_USE_TLS": False,
     "MAIL_USE_SSL": True,
-    "MAIL_USERNAME": 'alertainundaciones.laplata@gmail.com',
-    "MAIL_PASSWORD": 'mhbqtbguqgduzrhi'
+    "MAIL_USERNAME": 'configurarMail',
+    "MAIL_PASSWORD": 'ConfigurarPass'
 }
 def enviarMail():
     usuarios = Alerta.enviarAlertas()
@@ -22,7 +22,7 @@ def enviarMail():
         for usuario in usuarios:
             with app.app_context():
                 msg = Message(subject="Notificacion de Alerta",
-                    sender="alertainundaciones.laplata@gmail.com",
+                    sender=mail_settings["MAIL_USERNAME"],
                     recipients=[usuario[0]],
                     body="Alerta por fuertes lluvias en " + usuario[2] +". Riesgo de la zona: " +usuario[1])
                 mail.send(msg)
